@@ -1,6 +1,24 @@
 # MercadoPago PX RN
- 
-RN bridge to integrate MercadoPago checkout into a react-native app.
+
+RN bridge to integrate `MercadoPago` checkout into a RN app.
+
+## Pre Requisites
+
+As a pre requisite you need the following:
+
+1. A MercadoPago Account
+2. A `publicKey` from your MercadoPago Account
+3. A `preferenceId` obtained from your servers
+
+If you don't have any of the followings, you can start from here:
+
+1. [Creating a MercadoPago Account](https://www.mercadopago.com.ar/)
+2. [Creating a MercadoPago Application](https://applications.mercadopago.com/)
+3. [Creating a MercadoPago preference for Checkout Payment](https://www.mercadopago.com.ar/developers/es/reference/preferences/_checkout_preferences/post/)
+
+If you've more doubts you can read more documentation in this portal: 
+
+- [MercadoPago Developers](https://developers.mercadopago.com/)
 
 ## Install
 
@@ -20,7 +38,7 @@ yarn add @blackbox-vision/react-native-mercadopago-px
 
 ## Use case
 
-You're using react-native for building an app, and you need to integrate MercadoPago checkout in your app.
+You're using RN for building an app, and you need to integrate MercadoPago checkout in your app.
 
 ## Example Usage
 
@@ -31,29 +49,31 @@ import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 import MercadoPagoPx from '@blackbox-vision/react-native-mercadopago-px';
 
 export default function App() {
-  const [result, setResult] = React.useState<any>(null);
+  const [payment, setPayment] = React.useState(null);
 
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => {
-          MercadoPagoPx.createPayment({
-            publicKey: 'yourPublicKey',
-            preferenceId: 'yourPreferenceId',
-          })
-            .then((payment) => {
-              setResult(payment);
-            })
-            .catch((err) => {
-              Alert.alert('Something went wrong', err.message);
+        onPress={async () => {
+          try {
+            const payment = await MercadoPagoPx.createPayment({
+              publicKey: 'yourPublicKey',
+              preferenceId: 'yourPreferenceId',
             });
+
+            setPayment(payment);
+          } catch (err) {
+            Alert.alert('Something went wrong', err.message);
+          }
         }}
       >
         <View style={{ padding: 20 }}>
           <Text>Start Payment</Text>
         </View>
       </TouchableOpacity>
-      <Text>Result: {JSON.stringify(result)}</Text>
+      <View style={{ padding: 20 }}>
+        <Text>Payment: {JSON.stringify(payment)}</Text>
+      </View>
     </View>
   );
 }
