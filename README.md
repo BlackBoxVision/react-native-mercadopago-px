@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-## API
+## API
 
 ### createPayment
 
