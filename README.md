@@ -130,9 +130,9 @@ The `createPayment` function is async, its return value will be always a `Promis
 
 This library is currently in WIP. We've the following pendings:
 
-[ ] - Add support for Color Customization
-[ ] - Add support for Font Customization
-[ ] - Improve `Payment` object by bringing more properties to JS land
+- [ ] Add support for Color Customization
+- [ ] Add support for Font Customization
+- [ ] Improve `Payment` object by bringing more properties to JS land
 
 ## Issues
 
