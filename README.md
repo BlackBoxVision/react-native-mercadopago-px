@@ -126,6 +126,14 @@ The `createPayment` function is async, its return value will be always a `Promis
     - `id`: *string*
     - `status`: *string*
 
+## TODOs
+
+This library is currently in WIP. We've the following pendings:
+
+[ ] - Add support for Color Customization
+[ ] - Add support for Font Customization
+[ ] - Improve `Payment` object by bringing more properties to JS land
+
 ## Issues
 
 Please, open an [issue](https://github.com/BlackBoxVision/react-native-mercadopago-px/issues) following one of the issues templates. We will do our best to fix them.
