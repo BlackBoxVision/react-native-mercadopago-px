@@ -61,29 +61,25 @@ import MercadoPagoPx from '@blackbox-vision/react-native-mercadopago-px';
 export default function App() {
   const [payment, setPayment] = React.useState(null);
 
+  const startCheckout = async () => {
+    try {
+      const paymentResult = await MercadoPagoPx.createPayment({
+        publicKey: 'your_public_key',
+        preferenceId: 'your_preference_id',
+      });
+
+      setPayment(paymentResult);
+    } catch (err) {
+      Alert.alert('Something went wrong', err.message);
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={async () => {
-          try {
-            const payment = await MercadoPagoPx.createPayment({
-              publicKey: 'yourPublicKey',
-              preferenceId: 'yourPreferenceId',
-            });
-
-            setPayment(payment);
-          } catch (err) {
-            Alert.alert('Something went wrong', err.message);
-          }
-        }}
-      >
-        <View style={{ padding: 20 }}>
-          <Text>Start Payment</Text>
-        </View>
+      <TouchableOpacity onPress={startCheckout}>
+        <Text style={styles.text}>Start Payment</Text>
       </TouchableOpacity>
-      <View style={{ padding: 20 }}>
-        <Text>Payment: {JSON.stringify(payment)}</Text>
-      </View>
+      <Text style={styles.text}>Payment: {JSON.stringify(payment)}</Text>
     </View>
   );
 }
@@ -93,6 +89,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  text: {
+    padding: 20,
   },
 });
 ```
@@ -107,25 +106,25 @@ The function lets you start a MercadoPago Checkout Flow Activity/UI Controller d
 
 The function receives the following parameters:
 
-- `options`: [PaymentOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L26)
-    - `publicKey`: string
-    - `preferenceId`: string
-    - `privateKey`: string
-    - `advancedOptions`
-        -  `expressPaymentEnable`: boolean
-        -  `amountRowsEnabled`: boolean
-        -  `bankDealsEnabled`: boolean
-        -  `productId`: string
-    - `trackingOptions`
-        - `sessionId`: string
+- `options`: *[PaymentOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L26)*
+    - `publicKey`: *string*
+    - `preferenceId`: *string*
+    - `privateKey`: *string*
+    - `advancedOptions`: *[AdvancedOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L7)*
+        -  `expressPaymentEnable`: *boolean*
+        -  `amountRowsEnabled`: *boolean*
+        -  `bankDealsEnabled`: *boolean*
+        -  `productId`: *string*
+    - `trackingOptions`: *[TrackingOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L3)*
+        - `sessionId`: *string*
 
 #### Return Value
 
 The `createPayment` function is async, its return value will be always a `Promise`, but if you unwrap the promise contents you will access the following result object:
 
-- `payment`: [Payment](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L49)
-    - `id`: string
-    - `status`: string
+- `payment`: *[Payment](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L49)*
+    - `id`: *string*
+    - `status`: *string*
 
 ## Issues
 
