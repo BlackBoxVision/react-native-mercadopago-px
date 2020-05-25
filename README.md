@@ -2,9 +2,19 @@
 
 RN bridge to integrate `MercadoPago` checkout into a RN app.
 
+## Why this exists?
+
+Currently, `MercadoPago` only brings OSS support for Native SDKs. There's currently not support for RN. Our library uses both SDKs, android and ios, to enable a bridge for calling MercadoPago Checkout from RN land.
+
+We previously developed [react-native-mercadopago-checkout](https://github.com/BlackBoxVision/react-native-mercadopago-checkout). This newer library will suppose a deprecation of the older repository, we don't have plans for maintainance.
+
+## Compatibility
+
+Our package currently supports apps with **RN >= 0.61.5**. `We don't have a plan currently to support olders ones, but if you need we're open to support it.`
+
 ## Pre Requisites
 
-As a pre requisite you need the following:
+As a pre requisite you'll need the following before integrating the library:
 
 1. A MercadoPago Account
 2. A `publicKey` from your MercadoPago Account
@@ -16,7 +26,7 @@ If you don't have any of the followings, you can start from here:
 2. [Creating a MercadoPago Application](https://applications.mercadopago.com/)
 3. [Creating a MercadoPago preference for Checkout Payment](https://www.mercadopago.com.ar/developers/es/reference/preferences/_checkout_preferences/post/)
 
-If you've more doubts you can read more documentation in this portal: 
+If you've more doubts you can read more documentation in this portal:
 
 - [MercadoPago Developers](https://developers.mercadopago.com/)
 
@@ -86,6 +96,36 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+## API
+
+### createPayment
+
+The function lets you start a MercadoPago Checkout Flow Activity/UI Controller depending on the platform that is running. 
+
+#### Parameters
+
+The function receives the following parameters:
+
+- `options`: [PaymentOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L26)
+    - `publicKey`: string
+    - `preferenceId`: string
+    - `privateKey`: string
+    - `advancedOptions`
+        -  `expressPaymentEnable`: boolean
+        -  `amountRowsEnabled`: boolean
+        -  `bankDealsEnabled`: boolean
+        -  `productId`: string
+    - `trackingOptions`
+        - `sessionId`: string
+
+#### Return Value
+
+The `createPayment` function is async, its return value will be always a `Promise`, but if you unwrap the promise contents you will access the following result object:
+
+- `payment`: [Payment](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L49)
+    - `id`: string
+    - `status`: string
 
 ## Issues
 
