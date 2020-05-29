@@ -64,6 +64,9 @@
     "react": "*",
     "react-native": "*"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
