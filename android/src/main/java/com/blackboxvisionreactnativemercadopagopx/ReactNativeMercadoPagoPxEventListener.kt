@@ -23,9 +23,15 @@ open class ReactNativeMercadoPagoPxEventListener: ActivityEventListener {
                 }
 
                 if (resultCode == MercadoPagoCheckout.PAYMENT_RESULT_CODE) {
-                    val payment = PaymentResult.getPayment(data);
-
-                    mModulePromise?.resolve(payment);
+                    if (data == null) {
+                        throw Error("Something went wrong with payment");
+                    } else if (data.extras != null && data.extras.containsKey(MercadoPagoCheckout.EXTRA_ERROR)) {
+                        val error = PaymentResult.getError(data);
+                        throw Error(error.message);
+                    } else {
+                        val payment = PaymentResult.getPayment(data);
+                        mModulePromise?.resolve(payment);
+                    }
                 }
             }
         } catch (err: Error) {
