@@ -127,5 +127,5 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'com.mercadopago.android.px:checkout:4.+'
+  implementation 'com.mercadopago.android.px:checkout:4.46.1'
 }
