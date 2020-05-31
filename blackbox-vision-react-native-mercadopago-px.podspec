@@ -10,12 +10,10 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
 
-  s.platforms    = { :ios => "9.0" }
+  s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://github.com/BlackBoxVision/react-native-mercadopago-px.git", :tag => "#{s.version}" }
 
-  
   s.source_files = "ios/**/*.{h,m,mm}"
-  
 
-  s.dependency "React"
+  s.dependency "MercadoPagoSDK" 
 end
