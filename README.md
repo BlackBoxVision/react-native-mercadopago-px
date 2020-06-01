@@ -16,7 +16,7 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
 - [Installation](#installation)
   - [NPM](#npm)
   - [YARN](#yarn)
-- [Example Usage](#example-usage)
+- [Library Usages](#library-usages)
   - [Normal Payments](#normal-payments)
   - [Express Payments](#express-payments)
 - [API](#api)
@@ -72,7 +72,7 @@ curl -X POST \
     }'
 ```
 
-You'll need to replace `ACCESS**TOKEN` with your application account access token.
+You'll need to replace `ACCESS_TOKEN` with your application account access token.
 
 If you've more doubts you can read more documentation in this portal:
 
@@ -94,7 +94,7 @@ npm i @blackbox-vision/react-native-mercadopago-px
 yarn add @blackbox-vision/react-native-mercadopago-px
 ```
 
-## Example Usage
+## Library Usages
 
 We'll show in this section how to implement the 2 ways to launch MercadoPago checkout:
 
