@@ -54,7 +54,7 @@ For Testing Purposes we provide a `cURL` example on how to create a Preference:
 
 ```bash
 curl -X POST \
-    'https://api.mercadopago.com/checkout/preferences?access**token=ACCESS**TOKEN' \
+    'https://api.mercadopago.com/checkout/preferences?access**token=ACCESS_TOKEN' \
     -H 'Content-Type: application/json' \
     -d '{
       "items": [
