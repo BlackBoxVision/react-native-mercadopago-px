@@ -54,7 +54,7 @@ For Testing Purposes we provide a `cURL` example on how to create a Preference:
 
 ```bash
 curl -X POST \
-    'https://api.mercadopago.com/checkout/preferences?access**token=ACCESS_TOKEN' \
+    'https://api.mercadopago.com/checkout/preferences?access_token=ACCESS_TOKEN' \
     -H 'Content-Type: application/json' \
     -d '{
       "items": [
@@ -62,8 +62,8 @@ curl -X POST \
           "title": "Dummy Item",
           "description": "Multicolor Item",
           "quantity": 1,
-          "currency**id": "ARS",
-          "unit**price": 10.0
+          "currency_id": "ARS",
+          "unit_price": 10.0
         }
       ],
       "payer": {
