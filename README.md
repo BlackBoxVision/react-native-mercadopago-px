@@ -115,7 +115,7 @@ Replace this line in `AppDelegate.m`:
 self.window.rootViewController = rootViewController;
 ```
 
-For this lines:
+For those lines:
 
 ```objective-c
 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
