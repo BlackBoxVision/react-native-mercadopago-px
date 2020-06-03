@@ -16,6 +16,13 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
 - [Installation](#installation)
   - [NPM](#npm)
   - [YARN](#yarn)
+- [Library Setup](#library-setup)
+  - [IOS](#ios)
+    - [Modify AppDelegate.m](#modify-appdelegate.m)
+    - [Update Podfile](#update-podfile)
+      - [Disable Input and Output Paths](#disable-input-and-output-paths)
+      - [Modify DoubleConversion, Glog and Folly](#modify-doubleconversion-glog-and-folly)
+      - [Add support for Modular Headers](#add-support-for-modular-headers)
 - [Library Usages](#library-usages)
   - [Normal Payments](#normal-payments)
   - [Express Payments](#express-payments)
@@ -93,6 +100,81 @@ npm i @blackbox-vision/react-native-mercadopago-px
 ```bash
 yarn add @blackbox-vision/react-native-mercadopago-px
 ```
+
+## Library Setup
+
+### IOS
+
+Setting up this library is a little bit trickier for `IOS` rathen than `Android`.
+
+#### Modify AppDelegate.m
+
+Replace this line in `AppDelegate.m`:
+
+```objective-c
+self.window.rootViewController = rootViewController;
+```
+
+For this lines:
+
+```objective-c
+UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+
+[navController setToolbarHidden:YES animated:YES];
+[navController setNavigationBarHidden:YES];
+
+self.window.rootViewController = navController;
+```
+
+#### Update Podfile
+
+##### Disable Input and Output Paths
+
+After the following line:
+
+```objective-c
+platform :ios, '10.0'
+```
+
+Attach the following line:
+
+```objective-c
+install! 'cocoapods', :disable_input_output_paths => true
+```
+
+#### Modify DoubleConversion, Glog and Folly
+
+Replace those lines:
+
+```objective-c
+pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+```
+
+With those ones:
+
+```objective-c
+pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec', :modular_headers => false
+pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec', :modular_headers => false
+pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec', :modular_headers => false
+```
+
+#### Add support for Modular Headers
+
+After the following line:
+
+```objective-c
+use_native_modules!
+```
+
+Attach the following line:
+
+```objective-c
+use_modular_headers!
+```
+
+With those steps fully completed, you should be able to build the app correctly.
 
 ## Library Usages
 
