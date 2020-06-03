@@ -101,7 +101,7 @@ npm i @blackbox-vision/react-native-mercadopago-px
 yarn add @blackbox-vision/react-native-mercadopago-px
 ```
 
-## Library Setup
+## Library Setup
 
 ### IOS
 
@@ -142,7 +142,7 @@ Attach the following line:
 install! 'cocoapods', :disable_input_output_paths => true
 ```
 
-#### Modify DoubleConversion, Glog and Folly
+##### Modify DoubleConversion, Glog and Folly
 
 Replace those lines:
 
@@ -160,7 +160,7 @@ pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.
 pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec', :modular_headers => false
 ```
 
-#### Add support for Modular Headers
+##### Add support for Modular Headers
 
 After the following line:
 
@@ -174,7 +174,7 @@ Attach the following line:
 use_modular_headers!
 ```
 
-With those steps fully completed, you should be able to build the app correctly.
+With those steps fully completed, you should be able to build the IOS app accordangly.
 
 ## Library Usages
 
