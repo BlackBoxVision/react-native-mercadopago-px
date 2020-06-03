@@ -1,5 +1,4 @@
 #import "ReactNativeMercadopagoPx.h"
-#import "AppDelegate.h"
 
 @import MercadoPagoSDK;
 
@@ -11,10 +10,13 @@ RCT_EXPORT_MODULE()
     return dispatch_get_main_queue();
 }
 
-RCT_REMAP_METHOD(createPayment: (NSDictionary *) options: (RCTPromiseResolveBlock) resolve: (RCTPromiseRejectBlock) reject) {
+RCT_REMAP_METHOD(createPayment, 
+    options:(NSDictionary *)options
+    createPaymentWithResolver:(RCTPromiseResolveBlock)resolve
+    rejecter:(RCTPromiseRejectBlock)reject
+) {
     //Get UINavigationController from AppDelegate from RN app
-    AppDelegate *share = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    UINavigationController *uiNavigationController = (UINavigationController *) share.window.rootViewController;
+    UINavigationController *uiNavigationController = (UINavigationController *) [UIApplication sharedApplication].keyWindow.rootViewController;
     
     // Obtain keys from options object
     NSString *publicKey = [options objectForKey:@"publicKey"];

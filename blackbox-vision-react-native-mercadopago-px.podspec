@@ -14,6 +14,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/BlackBoxVision/react-native-mercadopago-px.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm}"
+  s.requires_arc = true
 
-  s.dependency "MercadoPagoSDK" 
+  s.dependency "React"
+  s.dependency "MercadoPagoSDK"
 end

@@ -1,6 +1,7 @@
 PODS:
   - blackbox-vision-react-native-mercadopago-px (0.1.5):
     - MercadoPagoSDK
+    - React
   - boost-for-react-native (1.63.0)
   - CocoaAsyncSocket (7.6.4)
   - CocoaLibEvent (1.0.0)
@@ -544,7 +545,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  blackbox-vision-react-native-mercadopago-px: 14bd0d03584e5acb18ae349d6623b46c7acee9c5
+  blackbox-vision-react-native-mercadopago-px: 71ee2bdd5ccb7c957ebe706e578d0cf35c00623e
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
@@ -590,6 +591,6 @@ SPEC CHECKSUMS:
   Yoga: 9db9ff2025ad21d1ac0a8b3c85d5ac4e7c29d525
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 524f819772f1935e7a2bd6a598ac645721251e3e
+PODFILE CHECKSUM: c7087fd1c721f68bb4e2e4164e421ce46dc61e4d
 
 COCOAPODS: 1.9.2
