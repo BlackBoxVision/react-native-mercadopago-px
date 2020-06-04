@@ -23,9 +23,7 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
       - [Disable Input and Output Paths](#disable-input-and-output-paths)
       - [Modify DoubleConversion, Glog and Folly](#modify-doubleconversion-glog-and-folly)
       - [Add support for Modular Headers](#add-support-for-modular-headers)
-- [Library Usages](#library-usages)
-  - [Normal Payments](#normal-payments)
-  - [Express Payments](#express-payments)
+- [Example Usage](#example-usage)
 - [API](#api)
   - [Create Payment](#createpayment)
     - [Parameters](#parameters)
@@ -176,14 +174,9 @@ use_modular_headers!
 
 With those steps fully completed, you should be able to build the IOS app accordangly.
 
-## Library Usages
+## Example Usage
 
-We'll show in this section how to implement the 2 ways to launch MercadoPago checkout:
-
-- **Normal Payments**
-- **Express Payments**
-
-### Normal Payments
+After reading and performing the previous steps, you should be to import the lib in Javascript land and use it like in this example:
 
 ```javascript
 import * as React from 'react';
@@ -204,61 +197,6 @@ export default function App() {
       const payment = await MercadoPagoCheckout.createPayment({
         publicKey: Config.MP_PUBLIC_KEY,
         preferenceId,
-      });
-
-      setPaymentResult(payment);
-    } catch (err) {
-      Alert.alert('Something went wrong', err.message);
-    }
-  };
-
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={startCheckout}>
-        <Text style={styles.text}>Start Payment</Text>
-      </TouchableOpacity>
-      <Text style={styles.text}>Payment: {JSON.stringify(paymentResult)}</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    padding: 20,
-  },
-});
-```
-
-### Express Payments
-
-```javascript
-import * as React from 'react';
-import Config from 'react-native-config';
-import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
-
-import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
-
-// In a real example app you would generate a preference against MercadoPago servers
-const getPreferenceId = () => Promise.resolve('your_preference_id');
-
-export default function App() {
-  const [paymentResult, setPaymentResult] = React.useState(null);
-
-  const startCheckout = async () => {
-    try {
-      const preferenceId = await getPreferenceId();
-      const payment = await MercadoPagoCheckout.createPayment({
-        preferenceId,
-        publicKey: Config.MP_PUBLIC_KEY,
-        privateKey: Config.MP_PRIVATE_KEY,
-        advancedOptions: {
-          expressPaymentEnable: true,
-        },
       });
 
       setPaymentResult(payment);
@@ -302,9 +240,7 @@ The function receives the following parameters:
 - `options`: **[PaymentOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L26)**
   - `publicKey`: **string**
   - `preferenceId`: **string**
-  - `privateKey`: **string**
   - `advancedOptions`: **[AdvancedOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L7)**
-    - `expressPaymentEnable`: **boolean**
     - `amountRowsEnabled`: **boolean**
     - `bankDealsEnabled`: **boolean**
     - `productId`: **string**
