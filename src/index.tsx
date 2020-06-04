@@ -6,10 +6,6 @@ export type TrackingOptions = {
 
 export type AdvancedOptions = {
   /**
-   * Boolean flag to enable express payments, as a prerequisite you need to set privateKey
-   */
-  expressPaymentEnable?: boolean;
-  /**
    * Boolean flag to determine if amount rows should be enabled
    */
   amountRowsEnabled?: boolean;
@@ -32,10 +28,6 @@ export type PaymentOptions = {
    * ID of the payment preference
    */
   preferenceId: string;
-  /**
-   * Key used to store cards using CardStorage
-   */
-  privateKey?: string | null;
   /**
    * Options to enable user-tracking specific features
    */
