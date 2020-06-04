@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
-  s.dependency "MercadoPagoSDK"
+  s.dependency "MercadoPagoSDK", "4.32.4" 
 end
