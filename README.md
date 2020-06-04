@@ -180,22 +180,49 @@ After reading and performing the previous steps, you should be to import the lib
 
 ```javascript
 import * as React from 'react';
-import Config from 'react-native-config';
+import Env from 'react-native-config';
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 
 import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
 
-// In a real example app you would generate a preference against MercadoPago servers
-const getPreferenceId = () => Promise.resolve('your_preference_id');
+import styles from './styles';
+
+const getPreferenceId = async (payer, items) => {
+  const response = await fetch(
+    `https://api.mercadopago.com/checkout/preferences?access_token=${Env.MP_ACCESS_TOKEN}`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        items,
+        payer: {
+          email: payer,
+        },
+      }),
+    }
+  );
+
+  const preference = await response.json();
+
+  return preference.id;
+};
 
 export default function App() {
   const [paymentResult, setPaymentResult] = React.useState(null);
 
   const startCheckout = async () => {
     try {
-      const preferenceId = await getPreferenceId();
+      const preferenceId = await getPreferenceId('payer@email.com', [
+        {
+          title: 'Dummy Item Title',
+          description: 'Dummy Item Description',
+          quantity: 1,
+          currency_id: 'ARS',
+          unit_price: 10.0,
+        },
+      ]);
+
       const payment = await MercadoPagoCheckout.createPayment({
-        publicKey: Config.MP_PUBLIC_KEY,
+        publicKey: Env.MP_PUBLIC_KEY,
         preferenceId,
       });
 
@@ -214,17 +241,6 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    padding: 20,
-  },
-});
 ```
 
 ## API
