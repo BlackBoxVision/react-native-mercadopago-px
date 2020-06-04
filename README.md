@@ -176,7 +176,7 @@ With those steps fully completed, you should be able to build the IOS app accord
 
 ## Example Usage
 
-After reading and performing the previous steps, you should be to import the lib in Javascript land and use it like in this example:
+After reading and performing the previous steps, you should be able to import the library and use it like in this example:
 
 ```javascript
 import * as React from 'react';
