@@ -13,9 +13,7 @@ export default function App() {
           ReactNativeMercadopagoPx.createPayment({
             publicKey: 'TEST-ad365c37-8012-4014-84f5-6c895b3f8e0a',
             preferenceId: '150216849-ceed1ee4-8ab9-4449-869f-f4a8565d386f',
-            privateKey: null,
             advancedOptions: {
-              expressPaymentEnable: true,
               amountRowsEnabled: true,
               bankDealsEnabled: false,
               productId: 'prueba',
