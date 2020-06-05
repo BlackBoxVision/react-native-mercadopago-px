@@ -26,6 +26,7 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
       - [Add support for Modular Headers](#add-support-for-modular-headers)
       - [Install Pods](#install-pods)
 - [Example Usage](#example-usage)
+- [Realistic Example](#realistic-example)
 - [API](#api)
   - [Create Payment](#createpayment)
     - [Parameters](#parameters)
@@ -268,6 +269,10 @@ export default function App() {
   );
 }
 ```
+
+### Realistic Example
+
+We provide a more "real app" sample [here](./example/README.md).
 
 ## API
 
