@@ -274,6 +274,8 @@ export default function App() {
 
 We provide a more real sample app [here](./example).
 
+![Example App Running](./checkout.gif)
+
 ## API
 
 ### createPayment
