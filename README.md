@@ -317,6 +317,16 @@ Attach the following one:
 use_frameworks!
 ```
 
+Then, run the following commands: 
+
+```bash
+cd ios
+pod deintegrate
+pod install
+```
+
+After this change you should be able to run your Expo ejected app. 
+
 **PD: Take care with this, if you use dynamic libraries you'll have some troubles.**
 
 ## TODOs
