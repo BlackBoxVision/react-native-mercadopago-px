@@ -20,9 +20,11 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
   - [IOS](#ios)
     - [Modify AppDelegate.m](#modify-appdelegate.m)
     - [Update Podfile](#update-podfile)
+      - [Update IOS Target](#update-ios-target)
       - [Disable Input and Output Paths](#disable-input-and-output-paths)
       - [Modify DoubleConversion, Glog and Folly](#modify-doubleconversion-glog-and-folly)
       - [Add support for Modular Headers](#add-support-for-modular-headers)
+      - [Install Pods](#install-pods)
 - [Example Usage](#example-usage)
 - [API](#api)
   - [Create Payment](#createpayment)
@@ -126,6 +128,20 @@ self.window.rootViewController = navController;
 
 #### Update Podfile
 
+##### Update IOS Target
+
+Replace the following line:
+
+```objective-c
+platform :ios, '9.0'
+```
+
+With the following one:
+
+```objective-c
+platform :ios, '10.0'
+```
+
 ##### Disable Input and Output Paths
 
 After the following line:
@@ -170,6 +186,16 @@ Attach the following line:
 
 ```objective-c
 use_modular_headers!
+```
+
+##### Install Pods
+
+Install pods by running the following commands:
+
+```bash
+cd ios
+pod deintegrate
+pod install
 ```
 
 With those steps fully completed, you should be able to build the IOS app accordangly.
