@@ -207,15 +207,15 @@ With those steps fully completed, you should be able to build the IOS app accord
 After reading and performing the previous steps, you should be able to import the library and use it like in this example:
 
 ```javascript
-import * as React from 'react';
 import Env from 'react-native-config';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 
 import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
 
 import styles from './styles';
 
-const getPreferenceId = async (payer, items) => {
+const getPreferenceId = async (payer, ...items) => {
   const response = await fetch(
     `https://api.mercadopago.com/checkout/preferences?access_token=${Env.MP_ACCESS_TOKEN}`,
     {
@@ -235,19 +235,17 @@ const getPreferenceId = async (payer, items) => {
 };
 
 export default function App() {
-  const [paymentResult, setPaymentResult] = React.useState(null);
+  const [paymentResult, setPaymentResult] = useState(null);
 
   const startCheckout = async () => {
     try {
-      const preferenceId = await getPreferenceId('payer@email.com', [
-        {
-          title: 'Dummy Item Title',
-          description: 'Dummy Item Description',
-          quantity: 1,
-          currency_id: 'ARS',
-          unit_price: 10.0,
-        },
-      ]);
+      const preferenceId = await getPreferenceId('payer@email.com', {
+        title: 'Dummy Item Title',
+        description: 'Dummy Item Description',
+        quantity: 1,
+        currency_id: 'ARS',
+        unit_price: 10.0,
+      });
 
       const payment = await MercadoPagoCheckout.createPayment({
         publicKey: Env.MP_PUBLIC_KEY,
@@ -301,9 +299,9 @@ The `createPayment` function is async, its return value will be always a `Promis
 
 ## Troubleshooting
 
-### It doesn't work with Expo ejected App 
+### It doesn't work with Expo ejected App
 
-Yes. It does! But to be able to work with `Expo`, you need to do the following adjustment in your `Podfile`. 
+Yes. It does! But to be able to work with `Expo`, you need to do the following adjustment in your `Podfile`.
 
 After the following line:
 
@@ -317,7 +315,7 @@ Attach the following one:
 use_frameworks!
 ```
 
-Then, run the following commands: 
+Then, run the following commands:
 
 ```bash
 cd ios
@@ -325,7 +323,7 @@ pod deintegrate
 pod install
 ```
 
-After this change you should be able to run your Expo ejected app. 
+After this change you should be able to run your Expo ejected app.
 
 **PD: Take care with this, if you use dynamic libraries you'll have some troubles.**
 
