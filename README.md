@@ -272,7 +272,7 @@ export default function App() {
 
 ### Realistic Example
 
-We provide a more "real app" sample [here](./example/README.md).
+We provide a more real sample app [here](./example).
 
 ## API
 
