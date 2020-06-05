@@ -30,6 +30,8 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
   - [Create Payment](#createpayment)
     - [Parameters](#parameters)
     - [Return Value](#return-value)
+- [Troubleshooting](#Troubleshooting)
+  - [It doesn't work with Expo ejected app](#it-doesnt-work-with-expo-ejected-app)
 - [TODOs](#todos)
 - [Issues](#issues)
 - [Contributing](#contributing)
@@ -296,6 +298,26 @@ The `createPayment` function is async, its return value will be always a `Promis
 - `payment`: **[Payment](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L49)**
   - `id`: **string**
   - `status`: **string**
+
+## Troubleshooting
+
+### It doesn't work with Expo ejected App 
+
+Yes. It does! But to be able to work with `Expo`, you need to do the following adjustment in your `Podfile`. 
+
+After the following line:
+
+```objective-c
+install! 'cocoapods', :disable_input_output_paths => true
+```
+
+Attach the following one:
+
+```objective-c
+use_frameworks!
+```
+
+**PD: Take care with this, if you use dynamic libraries you'll have some troubles.**
 
 ## TODOs
 
