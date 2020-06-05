@@ -1,4 +1,4 @@
-# MercadoPago PX RN
+# MercadoPago PX RN [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Freact-native-mercadopago-px.svg)](https://badge.fury.io/js/%40blackbox-vision%2Freact-native-mercadopago-px) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 RN bridge to integrate `MercadoPago` checkout into a RN app.
 
