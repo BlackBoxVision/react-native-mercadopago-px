@@ -31,4 +31,4 @@ If applicable, add screenshots to help explain your problem.
 Add any other context about the problem here.
 
 **Dependencies**
-Add the name and version of all dependencies of your project. e.g. a list or screenshot of your package.json
+Add the name and version of all dependencies of your project.
