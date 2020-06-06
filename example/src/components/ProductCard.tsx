@@ -13,6 +13,15 @@ interface ProductCardProps {
   amount: string | number;
 }
 
+const formatMoney = (amount: string | number) => {
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  return formatter.format(amount as any);
+};
+
 const ProductCard: React.FC<ProductCardProps> = ({
   uri,
   title,
@@ -57,11 +66,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <Card style={{ margin: 16 }}>
       <Card.Cover source={{ uri }} />
       <Card.Content>
-        <Title>{title}</Title>
+        <Title>
+          {title} - {formatMoney(amount)}
+        </Title>
         <Paragraph>{description}</Paragraph>
       </Card.Content>
       <Card.Actions>
-        <Button onPress={startCheckout}>Buy with MP</Button>
+        <Button onPress={startCheckout}>Buy shoes</Button>
       </Card.Actions>
     </Card>
   );

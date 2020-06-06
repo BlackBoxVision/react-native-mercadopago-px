@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 import { Provider as PaperProvider } from 'react-native-paper';
-import { FlatList, SafeAreaView, StatusBar } from 'react-native';
+import { FlatList, SafeAreaView } from 'react-native';
 
 import { getProducts } from './services';
+
 import ProductCard from './components/ProductCard';
+import StatusBar from './components/StatusBar';
 
 export default function App() {
   const products = getProducts();
 
   return (
     <PaperProvider>
-      <SafeAreaView>
-        <StatusBar backgroundColor="blue" barStyle="dark-content" />
+      <StatusBar />
+      <SafeAreaView style={{ flex: 1 }}>
         <Appbar>
           <Appbar.Content title="Products" />
         </Appbar>
