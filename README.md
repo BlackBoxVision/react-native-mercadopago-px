@@ -34,8 +34,6 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
   - [Create Payment](#createpayment)
     - [Parameters](#parameters)
     - [Return Value](#return-value)
-- [Troubleshooting](#Troubleshooting)
-  - [It doesn't work with Expo ejected app](#it-doesnt-work-with-expo-ejected-app)
 - [TODOs](#todos)
 - [Issues](#issues)
 - [Contributing](#contributing)
