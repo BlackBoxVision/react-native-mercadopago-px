@@ -1,6 +1,9 @@
 import { NativeModules } from 'react-native';
 
 export type TrackingOptions = {
+  /**
+   * Session ID for checkout tracking. Only android support.
+   */
   sessionId?: string;
 };
 
