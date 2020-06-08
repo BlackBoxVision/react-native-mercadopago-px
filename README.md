@@ -30,6 +30,7 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
       - [Install Pods](#install-pods)
 - [Example Usage](#example-usage)
 - [Realistic Example](#realistic-example)
+- [A Note on Security](#a-note-on-security)
 - [API](#api)
   - [Create Payment](#createpayment)
     - [Parameters](#parameters)
@@ -286,6 +287,7 @@ import MercadoPagoCheckout from '@blackbox-vision/react-native-mercadopago-px';
 
 import styles from './styles';
 
+// You should create the preference server-side, not client-side but we show client-side for the sake of simplicity
 const getPreferenceId = async (payer, ...items) => {
   const response = await fetch(
     `https://api.mercadopago.com/checkout/preferences?access_token=${Env.MP_ACCESS_TOKEN}`,
@@ -340,11 +342,17 @@ export default function App() {
 }
 ```
 
-### Realistic Example
+## Realistic Example
 
 We provide a more real sample app [here](./example).
 
 ![Example App Running](./checkout.gif)
+
+## A Note on Security
+
+**For the sake of simplicity in our examples we show the generation of the MercadoPago payment preference from the frontend side. That isn't ideal in the case you want your app to reach a production environment.**
+
+**You should move the preference creation from the frontend to your own backend.**
 
 ## API
 

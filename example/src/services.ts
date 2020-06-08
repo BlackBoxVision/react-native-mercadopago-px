@@ -1,5 +1,6 @@
 import Env from 'react-native-config';
 
+// You should create the preference server-side, not client-side but we show client-side for the sake of simplicity
 export const getPreferenceId = async (payer: string, ...items: any[]) => {
   const response = await fetch(
     `https://api.mercadopago.com/checkout/preferences?access_token=${Env.MP_ACCESS_TOKEN}`,
