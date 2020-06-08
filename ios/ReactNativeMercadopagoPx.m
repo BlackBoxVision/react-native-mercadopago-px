@@ -40,15 +40,40 @@ RCT_REMAP_METHOD(createPayment,
     if (publicKey == nil || preferenceId == nil) {
         self->reject(@"CREDENTIALS_REQUIRED", @"publicKey and preferenceId are required for starting MercadoPago checkout", nil);
     }
+ 
+    // Create an instance of MercadoPago Checkout Builder
+    MercadoPagoCheckoutBuilder *mpCheckoutBuilder = [[MercadoPagoCheckoutBuilder alloc] initWithPublicKey:publicKey preferenceId:preferenceId];
     
-    // TODO: add support for advanced options
+    // Get Advanced options
+    NSDictionary *advancedOptions = [options objectForKey:@"advancedOptions"];
+
+    // Set up advanced options for Checkout Builder
+    if (advancedOptions != nil) {
+        PXAdvancedConfiguration* advancedConfig = [[PXAdvancedConfiguration alloc] init];
+    
+        NSString *productId = [advancedOptions objectForKey:@"productId"];
+        
+        if (productId != nil) {
+            [advancedConfig setProductIdWithId:productId];
+        }
+        
+        // Set Bank Deals Enabled
+        BOOL bankDealsEnabled = [[advancedOptions objectForKey:@"bankDealsEnabled"] boolValue];
+        
+        [advancedConfig setBankDealsEnabled:bankDealsEnabled];
+        
+        // Set Amount Rows Enabled
+        BOOL amountRowsEnabled = [[advancedOptions objectForKey:@"amountRowsEnabled"] boolValue];
+        
+        [advancedConfig setAmountRowEnabled:amountRowsEnabled];
+        
+        [mpCheckoutBuilder setAdvancedConfigurationWithConfig:advancedConfig];
+    }
+    
     // TODO: add support for tracking listener
     // TODO: add support for customizing fonts
     // TODO: add support for customizing colors
- 
-    // Create an instance of MercadoPago checkout builder
-    MercadoPagoCheckoutBuilder *mpCheckoutBuilder = [[MercadoPagoCheckoutBuilder alloc] initWithPublicKey:publicKey preferenceId:preferenceId];
-    
+
     // Create an instance from MercadoPago checkout
     MercadoPagoCheckout *mpCheckout = [[MercadoPagoCheckout alloc] initWithBuilder:mpCheckoutBuilder];
     

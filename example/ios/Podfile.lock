@@ -1,5 +1,5 @@
 PODS:
-  - blackbox-vision-react-native-mercadopago-px (0.2.0):
+  - blackbox-vision-react-native-mercadopago-px (0.3.0):
     - MercadoPagoSDK (= 4.32.4)
     - React
   - boost-for-react-native (1.63.0)
@@ -486,7 +486,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  blackbox-vision-react-native-mercadopago-px: ffd45e53d18d91891ce9e1c8dd6b7401329e51f4
+  blackbox-vision-react-native-mercadopago-px: a0603e755d0f941c13e66699705e3beb3564f9cc
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 545eccf4f6ef2de8fd450fd8a1edb3f913c7371a
