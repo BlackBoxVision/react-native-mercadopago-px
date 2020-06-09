@@ -38,15 +38,22 @@ const ProductCard: React.FC<ProductCardProps> = ({
         unit_price: amount,
       });
 
-      await MercadoPagoCheckout.createPayment({
+      const payment = await MercadoPagoCheckout.createPayment({
         publicKey: Env.MP_PUBLIC_KEY,
         preferenceId,
       });
 
-      Alert.alert(
-        'Payment succeed',
-        'You will receive an email with the invoice of your product'
-      );
+      if (payment.status === 'in_process') {
+        Alert.alert(
+          'Payment In Progress',
+          'You will receive an email when the payment of the product is complete'
+        );
+      } else {
+        Alert.alert(
+          'Payment succeed',
+          'You will receive an email with the invoice of your product'
+        );
+      }
     } catch (err) {
       if (err.message.includes('cancel')) {
         Alert.alert(
