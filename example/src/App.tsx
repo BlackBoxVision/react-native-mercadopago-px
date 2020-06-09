@@ -1,3 +1,6 @@
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 import { Provider as PaperProvider } from 'react-native-paper';

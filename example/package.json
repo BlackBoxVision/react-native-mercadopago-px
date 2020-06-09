@@ -9,6 +9,7 @@
     "start": "react-native start"
   },
   "dependencies": {
+    "intl": "^1.2.5",
     "react": "16.11.0",
     "react-native": "0.62.0",
     "react-native-config": "^1.2.0",
