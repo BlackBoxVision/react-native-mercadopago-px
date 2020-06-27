@@ -53,6 +53,11 @@ export type Payment = {
 };
 
 export type MercadopagoPx = {
+  /**
+   * Method that lets you start an instance of MP Checkout to generate a payment in guest mode
+   *
+   * @param options - necessary payment options to start checkout
+   */
   createPayment(options: PaymentOptions): Promise<Payment>;
 };
 
