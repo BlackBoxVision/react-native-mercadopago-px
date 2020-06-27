@@ -1,8 +1,10 @@
 PODS:
-  - blackbox-vision-react-native-mercadopago-px (0.3.0):
+  - blackbox-vision-react-native-mercadopago-px (0.4.0):
     - MercadoPagoSDK (= 4.32.4)
     - React
   - boost-for-react-native (1.63.0)
+  - CocoaAsyncSocket (7.6.4)
+  - CocoaLibEvent (1.0.0)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.62.0)
   - FBReactNativeSpec (0.62.0):
@@ -12,6 +14,52 @@ PODS:
     - React-Core (= 0.62.0)
     - React-jsi (= 0.62.0)
     - ReactCommon/turbomodule/core (= 0.62.0)
+  - Flipper (0.33.1):
+    - Flipper-Folly (~> 2.1)
+    - Flipper-RSocket (~> 1.0)
+  - Flipper-DoubleConversion (1.1.7)
+  - Flipper-Folly (2.2.0):
+    - boost-for-react-native
+    - CocoaLibEvent (~> 1.0)
+    - Flipper-DoubleConversion
+    - Flipper-Glog
+    - OpenSSL-Universal (= 1.0.2.19)
+  - Flipper-Glog (0.3.6)
+  - Flipper-PeerTalk (0.0.4)
+  - Flipper-RSocket (1.1.0):
+    - Flipper-Folly (~> 2.2)
+  - FlipperKit (0.33.1):
+    - FlipperKit/Core (= 0.33.1)
+  - FlipperKit/Core (0.33.1):
+    - Flipper (~> 0.33.1)
+    - FlipperKit/CppBridge
+    - FlipperKit/FBCxxFollyDynamicConvert
+    - FlipperKit/FBDefines
+    - FlipperKit/FKPortForwarding
+  - FlipperKit/CppBridge (0.33.1):
+    - Flipper (~> 0.33.1)
+  - FlipperKit/FBCxxFollyDynamicConvert (0.33.1):
+    - Flipper-Folly (~> 2.1)
+  - FlipperKit/FBDefines (0.33.1)
+  - FlipperKit/FKPortForwarding (0.33.1):
+    - CocoaAsyncSocket (~> 7.6)
+    - Flipper-PeerTalk (~> 0.0.4)
+  - FlipperKit/FlipperKitHighlightOverlay (0.33.1)
+  - FlipperKit/FlipperKitLayoutPlugin (0.33.1):
+    - FlipperKit/Core
+    - FlipperKit/FlipperKitHighlightOverlay
+    - FlipperKit/FlipperKitLayoutTextSearchable
+    - YogaKit (~> 1.18)
+  - FlipperKit/FlipperKitLayoutTextSearchable (0.33.1)
+  - FlipperKit/FlipperKitNetworkPlugin (0.33.1):
+    - FlipperKit/Core
+  - FlipperKit/FlipperKitReactPlugin (0.33.1):
+    - FlipperKit/Core
+  - FlipperKit/FlipperKitUserDefaultsPlugin (0.33.1):
+    - FlipperKit/Core
+  - FlipperKit/SKIOSNetworkPlugin (0.33.1):
+    - FlipperKit/Core
+    - FlipperKit/FlipperKitNetworkPlugin
   - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
@@ -33,69 +81,69 @@ PODS:
     - MLCardDrawer (~> 1.0)
     - MLCardForm (~> 0.1)
     - MLUI (~> 5.0)
-  - MLBusinessComponents (1.10.0):
-    - MLBusinessComponents/Default (= 1.10.0)
+  - MLBusinessComponents (1.13.0):
+    - MLBusinessComponents/Default (= 1.13.0)
     - MLUI (~> 5.0)
-  - MLBusinessComponents/Default (1.10.0):
+  - MLBusinessComponents/Default (1.13.0):
     - MLUI (~> 5.0)
   - MLCardDrawer (1.4.9):
     - MLCardDrawer/Default (= 1.4.9)
   - MLCardDrawer/Default (1.4.9)
-  - MLCardForm (0.8.4):
+  - MLCardForm (0.8.6):
     - MLCardDrawer (~> 1.0)
-    - MLCardForm/Default (= 0.8.4)
+    - MLCardForm/Default (= 0.8.6)
     - MLUI (~> 5.0)
-  - MLCardForm/Default (0.8.4):
+  - MLCardForm/Default (0.8.6):
     - MLCardDrawer (~> 1.0)
     - MLUI (~> 5.0)
-  - MLUI (5.21.0):
-    - MLUI/ActionButton (= 5.21.0)
-    - MLUI/Core (= 5.21.0)
-    - MLUI/Helpers (= 5.21.0)
-    - MLUI/MLButton (= 5.21.0)
-    - MLUI/MLCheckBox (= 5.21.0)
-    - MLUI/MLColorPalette (= 5.21.0)
-    - MLUI/MLContextualMenu (= 5.21.0)
-    - MLUI/MLFonts (= 5.21.0)
-    - MLUI/MLFullscreenModal (= 5.21.0)
-    - MLUI/MLGenericErrorView (= 5.21.0)
-    - MLUI/MLHeader (= 5.21.0)
-    - MLUI/MLHtml (= 5.21.0)
-    - MLUI/MLModal (= 5.21.0)
-    - MLUI/MLRadioButton (= 5.21.0)
-    - MLUI/MLSnackBar (= 5.21.0)
-    - MLUI/MLSpacing (= 5.21.0)
-    - MLUI/MLSpinner (= 5.21.0)
-    - MLUI/MLSwitch (= 5.21.0)
-    - MLUI/MLTextView (= 5.21.0)
-    - MLUI/MLTitledMultiLineTextField (= 5.21.0)
-    - MLUI/MLTitledSingleLineTextField (= 5.21.0)
-    - MLUI/PriceView (= 5.21.0)
-    - MLUI/SnackBarView (= 5.21.0)
-    - MLUI/StyleSheet (= 5.21.0)
-  - MLUI/ActionButton (5.21.0):
+  - MLUI (5.21.1):
+    - MLUI/ActionButton (= 5.21.1)
+    - MLUI/Core (= 5.21.1)
+    - MLUI/Helpers (= 5.21.1)
+    - MLUI/MLButton (= 5.21.1)
+    - MLUI/MLCheckBox (= 5.21.1)
+    - MLUI/MLColorPalette (= 5.21.1)
+    - MLUI/MLContextualMenu (= 5.21.1)
+    - MLUI/MLFonts (= 5.21.1)
+    - MLUI/MLFullscreenModal (= 5.21.1)
+    - MLUI/MLGenericErrorView (= 5.21.1)
+    - MLUI/MLHeader (= 5.21.1)
+    - MLUI/MLHtml (= 5.21.1)
+    - MLUI/MLModal (= 5.21.1)
+    - MLUI/MLRadioButton (= 5.21.1)
+    - MLUI/MLSnackBar (= 5.21.1)
+    - MLUI/MLSpacing (= 5.21.1)
+    - MLUI/MLSpinner (= 5.21.1)
+    - MLUI/MLSwitch (= 5.21.1)
+    - MLUI/MLTextView (= 5.21.1)
+    - MLUI/MLTitledMultiLineTextField (= 5.21.1)
+    - MLUI/MLTitledSingleLineTextField (= 5.21.1)
+    - MLUI/PriceView (= 5.21.1)
+    - MLUI/SnackBarView (= 5.21.1)
+    - MLUI/StyleSheet (= 5.21.1)
+  - MLUI/ActionButton (5.21.1):
     - MLUI/Core
-  - MLUI/Core (5.21.0):
+  - MLUI/Core (5.21.1):
     - MLUI/MLFonts
-  - MLUI/Helpers (5.21.0)
-  - MLUI/MLButton (5.21.0):
+  - MLUI/Helpers (5.21.1)
+  - MLUI/MLButton (5.21.1):
     - MLUI/Core
     - MLUI/MLColorPalette
     - MLUI/MLFonts
     - MLUI/MLSpinner
     - MLUI/StyleSheet
-  - MLUI/MLCheckBox (5.21.0):
+  - MLUI/MLCheckBox (5.21.1):
     - MLUI/MLColorPalette
     - MLUI/StyleSheet
-  - MLUI/MLColorPalette (5.21.0)
-  - MLUI/MLContextualMenu (5.21.0):
+  - MLUI/MLColorPalette (5.21.1)
+  - MLUI/MLContextualMenu (5.21.1):
     - MLUI/MLColorPalette
     - MLUI/MLFonts
-  - MLUI/MLFonts (5.21.0):
+  - MLUI/MLFonts (5.21.1):
     - JRSwizzle (= 1.0)
     - MLUI/Helpers
     - MLUI/StyleSheet
-  - MLUI/MLFullscreenModal (5.21.0):
+  - MLUI/MLFullscreenModal (5.21.1):
     - FXBlurView (~> 1.6)
     - MLUI/Core
     - MLUI/MLButton
@@ -103,58 +151,61 @@ PODS:
     - MLUI/MLFonts
     - MLUI/MLHeader
     - MLUI/StyleSheet
-  - MLUI/MLGenericErrorView (5.21.0):
+  - MLUI/MLGenericErrorView (5.21.1):
     - MLUI/MLButton
     - MLUI/MLColorPalette
     - MLUI/MLSpacing
-  - MLUI/MLHeader (5.21.0):
+  - MLUI/MLHeader (5.21.1):
     - MLUI/MLColorPalette
     - MLUI/StyleSheet
-  - MLUI/MLHtml (5.21.0):
+  - MLUI/MLHtml (5.21.1):
     - MLUI/MLFonts
-  - MLUI/MLModal (5.21.0):
+  - MLUI/MLModal (5.21.1):
     - FXBlurView (~> 1.6)
     - MLUI/Core
     - MLUI/MLButton
     - MLUI/MLColorPalette
     - MLUI/MLFonts
     - MLUI/StyleSheet
-  - MLUI/MLRadioButton (5.21.0):
+  - MLUI/MLRadioButton (5.21.1):
     - MLUI/StyleSheet
-  - MLUI/MLSnackBar (5.21.0):
+  - MLUI/MLSnackBar (5.21.1):
     - MLUI/Helpers
     - MLUI/MLButton
     - MLUI/MLColorPalette
     - MLUI/MLFonts
-  - MLUI/MLSpacing (5.21.0):
+  - MLUI/MLSpacing (5.21.1):
     - JRSwizzle (= 1.0)
     - MLUI/MLFonts
-  - MLUI/MLSpinner (5.21.0):
+  - MLUI/MLSpinner (5.21.1):
     - MLUI/MLColorPalette
     - MLUI/MLFonts
     - MLUI/StyleSheet
-  - MLUI/MLSwitch (5.21.0):
+  - MLUI/MLSwitch (5.21.1):
     - MLUI/Helpers
     - MLUI/MLColorPalette
-  - MLUI/MLTextView (5.21.0):
+  - MLUI/MLTextView (5.21.1):
     - MLUI/MLColorPalette
     - MLUI/MLFonts
-  - MLUI/MLTitledMultiLineTextField (5.21.0):
+  - MLUI/MLTitledMultiLineTextField (5.21.1):
     - MLUI/MLColorPalette
     - MLUI/MLFonts
     - MLUI/MLTitledSingleLineTextField
     - MLUI/StyleSheet
-  - MLUI/MLTitledSingleLineTextField (5.21.0):
+  - MLUI/MLTitledSingleLineTextField (5.21.1):
     - MLUI/MLColorPalette
     - MLUI/MLFonts
     - MLUI/StyleSheet
-  - MLUI/PriceView (5.21.0):
+  - MLUI/PriceView (5.21.1):
     - MLUI/Core
     - MLUI/MLFonts
-  - MLUI/SnackBarView (5.21.0):
+  - MLUI/SnackBarView (5.21.1):
     - MLUI/Helpers
     - MLUI/MLFonts
-  - MLUI/StyleSheet (5.21.0)
+  - MLUI/StyleSheet (5.21.1)
+  - OpenSSL-Universal (1.0.2.19):
+    - OpenSSL-Universal/Static (= 1.0.2.19)
+  - OpenSSL-Universal/Static (1.0.2.19)
   - RCTRequired (0.62.0)
   - RCTTypeSafety (0.62.0):
     - FBLazyVector (= 0.62.0)
@@ -382,12 +433,33 @@ PODS:
   - RNVectorIcons (6.6.0):
     - React
   - Yoga (1.14.0)
+  - YogaKit (1.18.1):
+    - Yoga (~> 1.14)
 
 DEPENDENCIES:
   - blackbox-vision-react-native-mercadopago-px (from `../..`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
+  - Flipper (~> 0.33.1)
+  - Flipper-DoubleConversion (= 1.1.7)
+  - Flipper-Folly (~> 2.1)
+  - Flipper-Glog (= 0.3.6)
+  - Flipper-PeerTalk (~> 0.0.4)
+  - Flipper-RSocket (~> 1.0)
+  - FlipperKit (~> 0.33.1)
+  - FlipperKit/Core (~> 0.33.1)
+  - FlipperKit/CppBridge (~> 0.33.1)
+  - FlipperKit/FBCxxFollyDynamicConvert (~> 0.33.1)
+  - FlipperKit/FBDefines (~> 0.33.1)
+  - FlipperKit/FKPortForwarding (~> 0.33.1)
+  - FlipperKit/FlipperKitHighlightOverlay (~> 0.33.1)
+  - FlipperKit/FlipperKitLayoutPlugin (~> 0.33.1)
+  - FlipperKit/FlipperKitLayoutTextSearchable (~> 0.33.1)
+  - FlipperKit/FlipperKitNetworkPlugin (~> 0.33.1)
+  - FlipperKit/FlipperKitReactPlugin (~> 0.33.1)
+  - FlipperKit/FlipperKitUserDefaultsPlugin (~> 0.33.1)
+  - FlipperKit/SKIOSNetworkPlugin (~> 0.33.1)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
@@ -419,6 +491,15 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - boost-for-react-native
+    - CocoaAsyncSocket
+    - CocoaLibEvent
+    - Flipper
+    - Flipper-DoubleConversion
+    - Flipper-Folly
+    - Flipper-Glog
+    - Flipper-PeerTalk
+    - Flipper-RSocket
+    - FlipperKit
     - FXBlurView
     - JRSwizzle
     - MercadoPagoSDK
@@ -426,6 +507,8 @@ SPEC REPOS:
     - MLCardDrawer
     - MLCardForm
     - MLUI
+    - OpenSSL-Universal
+    - YogaKit
 
 EXTERNAL SOURCES:
   blackbox-vision-react-native-mercadopago-px:
@@ -486,20 +569,30 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  blackbox-vision-react-native-mercadopago-px: a0603e755d0f941c13e66699705e3beb3564f9cc
+  blackbox-vision-react-native-mercadopago-px: e0861c081dd2720da1f0a7d45fc4829791bb6cb0
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
+  CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 545eccf4f6ef2de8fd450fd8a1edb3f913c7371a
   FBReactNativeSpec: 85c7f8347f4a6e911742228e89e245187afa298e
+  Flipper: 6c1f484f9a88d30ab3e272800d53688439e50f69
+  Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
+  Flipper-Folly: c12092ea368353b58e992843a990a3225d4533c3
+  Flipper-Glog: 1dfd6abf1e922806c52ceb8701a3599a79a200a6
+  Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
+  Flipper-RSocket: 64e7431a55835eb953b0bf984ef3b90ae9fdddd7
+  FlipperKit: 6dc9b8f4ef60d9e5ded7f0264db299c91f18832e
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   MercadoPagoSDK: 634fc8a9fe7f99f4d73506659c68cdbb885407fc
-  MLBusinessComponents: 338390242212caaba1c5fed8953a51d194018202
+  MLBusinessComponents: cc75dfe51274823bee29e282fa3a2caf53ce35b3
   MLCardDrawer: 2a432630e9cecaac357f8cb6c181bb0510b90124
-  MLCardForm: 1ea19e318acd0ec0ddbfd20900ac06d83e57414e
-  MLUI: 199caeb2318ac42c3a3a682ef993844ca1c70da4
+  MLCardForm: 61e0c9eea2f9148f8ad003bb2f8669e6540a911c
+  MLUI: d4d1f28409ee5f34d0f9f871469aac18ea99d0c9
+  OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
   RCTRequired: 0873f5bdb1762d2b9b1ae16a01c4f91d6ee3b6dd
   RCTTypeSafety: a605e0cc0e4220f6e65896bd9e675073c2978f35
   React: 8abf6bdd2b05538e9445f7bbda800df744068bfe
@@ -522,7 +615,8 @@ SPEC CHECKSUMS:
   ReactCommon: d22162ab8f1358c53dfcd0f9c4d82d38facdbc48
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 9db9ff2025ad21d1ac0a8b3c85d5ac4e7c29d525
+  YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: e8a1db29273f17c758930ecd55d99abcc959f2b5
+PODFILE CHECKSUM: 29ee39ccf2af621f9ec159ebb364dc2a186a60cd
 
 COCOAPODS: 1.9.2

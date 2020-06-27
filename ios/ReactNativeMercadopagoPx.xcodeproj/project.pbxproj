@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5E555C0D2413F4C50049A1A2 /* ReactNativeMercadopagoPx.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ReactNativeMercadopagoPx.m */; };
-		965E5BA70F5EF9EB63720145 /* Pods_ReactNativeMercadopagoPx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8DB26798A07A7CA0A30628 /* Pods_ReactNativeMercadopagoPx.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,11 +24,8 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libReactNativeMercadopagoPx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeMercadopagoPx.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D8DB26798A07A7CA0A30628 /* Pods_ReactNativeMercadopagoPx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactNativeMercadopagoPx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8245497E7E27CE4BFB74360D /* Pods-ReactNativeMercadopagoPx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeMercadopagoPx.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeMercadopagoPx/Pods-ReactNativeMercadopagoPx.release.xcconfig"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* ReactNativeMercadopagoPx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReactNativeMercadopagoPx.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* ReactNativeMercadopagoPx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReactNativeMercadopagoPx.m; sourceTree = "<group>"; };
-		F6B61DA4C1DE095B710FFBC9 /* Pods-ReactNativeMercadopagoPx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeMercadopagoPx.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeMercadopagoPx/Pods-ReactNativeMercadopagoPx.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,21 +33,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965E5BA70F5EF9EB63720145 /* Pods_ReactNativeMercadopagoPx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		101ECF612E575897AA326F94 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5D8DB26798A07A7CA0A30628 /* Pods_ReactNativeMercadopagoPx.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,15 +54,12 @@
 				B3E7B5891CC2AC0600A0062D /* ReactNativeMercadopagoPx.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				F512360D395B81E2C279A363 /* Pods */,
-				101ECF612E575897AA326F94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		F512360D395B81E2C279A363 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F6B61DA4C1DE095B710FFBC9 /* Pods-ReactNativeMercadopagoPx.debug.xcconfig */,
-				8245497E7E27CE4BFB74360D /* Pods-ReactNativeMercadopagoPx.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -87,7 +71,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "ReactNativeMercadopagoPx" */;
 			buildPhases = (
-				BE1AF22267D4147CFF467ED7 /* [CP] Check Pods Manifest.lock */,
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
@@ -132,31 +115,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		BE1AF22267D4147CFF467ED7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeMercadopagoPx-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
@@ -265,7 +223,6 @@
 		};
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6B61DA4C1DE095B710FFBC9 /* Pods-ReactNativeMercadopagoPx.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -282,7 +239,6 @@
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8245497E7E27CE4BFB74360D /* Pods-ReactNativeMercadopagoPx.release.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
