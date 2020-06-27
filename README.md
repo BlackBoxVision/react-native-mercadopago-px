@@ -113,83 +113,60 @@ Setting up this library is a little bit trickier for `IOS` rathen than `Android`
 
 #### Modify AppDelegate.m
 
-Replace this line in `AppDelegate.m`:
+Modify your app delegate like the following:
 
-```objective-c
-self.window.rootViewController = rootViewController;
-```
+```diff
+- self.window.rootViewController = rootViewController;
 
-For those lines:
++ UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 
-```objective-c
-UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
++ [navController setToolbarHidden:YES animated:YES];
++ [navController setNavigationBarHidden:YES];
 
-[navController setToolbarHidden:YES animated:YES];
-[navController setNavigationBarHidden:YES];
-
-self.window.rootViewController = navController;
++ self.window.rootViewController = navController;
 ```
 
 #### Update Podfile
 
 ##### Update IOS Target
 
-Replace the following line:
+Modify the IOS target like the following:
 
-```objective-c
-platform :ios, '9.0'
-```
-
-With the following one:
-
-```objective-c
-platform :ios, '10.0'
+```diff
+- platform :ios, '9.0'
++ platform :ios, '10.0'
 ```
 
 ##### Disable Input and Output Paths
 
-After the following line:
+Add disable input output paths like the following:
 
-```objective-c
+```diff
 platform :ios, '10.0'
-```
-
-Attach the following lines:
-
-```objective-c
-install! 'cocoapods', :disable_input_output_paths => true
++ install! 'cocoapods', :disable_input_output_paths => true
 ```
 
 ##### Modify DoubleConversion, Glog and Folly
 
-Replace those lines:
+Disable module headers for DoubleConversion, Glog and Folly like the following:
 
-```objective-c
-pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-```
+```diff
+- pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+- pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
+- pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-With those ones:
-
-```objective-c
-pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec', :modular_headers => false
-pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec', :modular_headers => false
-pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec', :modular_headers => false
++ pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec', :modular_headers => false
++ pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec', :modular_headers => false
++ pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec', :modular_headers => false
 ```
 
 ##### Add support for Modular Headers
 
-After the following line:
+Add support for module headers like the following:
 
-```objective-c
+```diff
 use_native_modules!
-```
-
-Attach the following line:
-
-```objective-c
-use_modular_headers!
++ use_modular_headers!
 ```
 
 ##### Install Pods
