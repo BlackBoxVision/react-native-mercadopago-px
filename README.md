@@ -19,9 +19,6 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
 - [Library Setup](#library-setup)
   - [IOS](#ios)
     - [Modify AppDelegate.m](#modify-appdelegatem)
-    - [Remove Flipper](#remove-flipper)
-      - [From AppDelegate.m](#from-appdelegatem)
-      - [From Podfile](#from-podfile)
     - [Update Podfile](#update-podfile)
       - [Update IOS Target](#update-ios-target)
       - [Disable Input and Output Paths](#disable-input-and-output-paths)
@@ -35,7 +32,9 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
   - [Create Payment](#createpayment)
     - [Parameters](#parameters)
     - [Return Value](#return-value)
-- [TODOs](#todos)
+- [Troubleshooting](#troubleshooting)
+  - [It doesn't work with Expo ejected App](#it-doesnt-work-with-expo-ejected-app)
+  - [In IOS when running app in DEBUG some strings are missing](#in-ios-when-running-app-in-debug-some-strings-are-missing)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -131,74 +130,6 @@ UINavigationController *navController = [[UINavigationController alloc] initWith
 self.window.rootViewController = navController;
 ```
 
-#### Remove Flipper
-
-##### From AppDelegate.m
-
-Remove the following lines: 
-
-```objective-c
-#if DEBUG
-#import <FlipperKit/FlipperClient.h>
-#import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
-#import <FlipperKitUserDefaultsPlugin/FKUserDefaultsPlugin.h>
-#import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
-#import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
-#import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
-static void InitializeFlipper(UIApplication *application) {
-  FlipperClient *client = [FlipperClient sharedClient];
-  SKDescriptorMapper *layoutDescriptorMapper = [[SKDescriptorMapper alloc] initWithDefaults];
-  [client addPlugin:[[FlipperKitLayoutPlugin alloc] initWithRootNode:application withDescriptorMapper:layoutDescriptorMapper]];
-  [client addPlugin:[[FKUserDefaultsPlugin alloc] initWithSuiteName:nil]];
-  [client addPlugin:[FlipperKitReactPlugin new]];
-  [client addPlugin:[[FlipperKitNetworkPlugin alloc] initWithNetworkAdapter:[SKIOSNetworkAdapter new]]];
-  [client start];
-}
-#endif
-```
-
-```objective-c 
-#if DEBUG
-  InitializeFlipper(application);
-#endif
-```
-
-##### From Podfile
-
-Remove the following lines: 
-
-```objective-c
-def add_flipper_pods!
-  version = '~> 0.33.1'
-  pod 'FlipperKit', version, :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitLayoutPlugin', version, :configuration => 'Debug'
-  pod 'FlipperKit/SKIOSNetworkPlugin', version, :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitUserDefaultsPlugin', version, :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitReactPlugin', version, :configuration => 'Debug'
-end
-# Post Install processing for Flipper
-def flipper_post_install(installer)
-  installer.pods_project.targets.each do |target|
-    if target.name == 'YogaKit'
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.1'
-      end
-    end
-  end
-end
-```
-
-```objective-c
-# Enables Flipper.
-#
-# Note that if you have use_frameworks! enabled, Flipper will not work and
-# you should disable these next few lines.
-add_flipper_pods!
-post_install do |installer|
-  flipper_post_install(installer)
-end 
-```
-
 #### Update Podfile
 
 ##### Update IOS Target
@@ -227,7 +158,6 @@ Attach the following lines:
 
 ```objective-c
 install! 'cocoapods', :disable_input_output_paths => true
-use_frameworks!
 ```
 
 ##### Modify DoubleConversion, Glog and Folly
@@ -394,12 +324,6 @@ After the following line:
 install! 'cocoapods', :disable_input_output_paths => true
 ```
 
-Attach the following one:
-
-```objective-c
-use_frameworks!
-```
-
 Then, run the following commands:
 
 ```bash
@@ -410,15 +334,9 @@ pod install
 
 After this change you should be able to run your Expo ejected app.
 
-**PD: Take care with this, if you use dynamic libraries you'll have some troubles.**
+### In IOS when running app in DEBUG some strings are missing
 
-## TODOs
-
-This library is currently in WIP. We've the following pendings:
-
-- [ ] Add support for Color Customization
-- [ ] Add support for Font Customization
-- [ ] Improve `Payment` object by bringing more properties to JS land
+We're still investigating but when Flipper is enabled in IOS some strings from translations aren't loaded.
 
 ## Issues
 
