@@ -2,25 +2,6 @@ import UIKit
 import Foundation
 import MercadoPagoSDK
 
-enum JsOptions {
-    static let PUBLIC_KEY = "publicKey";
-    static let PREFERENCE_ID = "preferenceId";
-
-    static let LANGUAGE = "language";
-    static let PRODUCT_ID = "productId";
-    static let ADVANCED_OPTIONS = "advancedOptions";
-    static let BANK_DEALS_ENABLED = "bankDealsEnabled";
-    static let AMOUNT_ROW_ENABLED = "amountRowEnabled";
-}
-
-enum JsErrorTypes {
-    static let PAYMENT_ERRORED = "mp:payment_errored";
-    static let PAYMENT_CANCELLED = "mp:payment_cancelled";
-    
-    static let PUBLIC_KEY_REQUIRED = "mp:public_key_required";
-    static let PREFERENCE_ID_REQUIRED = "mp:preference_id_required";
-}
-
 @objc(ReactNativeMercadopagoPx)
 class ReactNativeMercadopagoPx: NSObject {
     private var navigationController: UINavigationController? = nil;
@@ -95,61 +76,113 @@ class ReactNativeMercadopagoPx: NSObject {
             checkout.start(navigationController: self.navigationController!, lifeCycleProtocol: self);
         };
     }
+    
+    func setUpNavigationController() -> Void {
+        self.navigationController?.setNavigationBarHidden(true, animated: true);
+        self.navigationController?.popToRootViewController(animated: true);
+    }
 }
 
-// TODO: review extension definition
 extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
     func finishCheckout() -> ((PXResult?) -> Void)? {
-        //self.navigationController?.setNavigationBarHidden(true, animated: true);
-        //self.navigationController?.popToRootViewController(animated: true);
-        
-        return nil;
-    }
-
-    func cancelCheckout() -> (() -> Void)? {
-        //self.navigationController?.setNavigationBarHidden(true, animated: true);
-        //self.navigationController?.popToRootViewController(animated: true);
-        
-        return nil;
-    }
-
-    func changePaymentMethodTapped() -> (() -> Void)? {
-        return { () in
-            print("px - changePaymentMethodTapped")
-        }
-    }
-    
-    /*
-    func finishCheckout() -> ((PXPayment?) -> Void)? {
-        // TODO: validate this is ok?
-        return (payment) {
-            // TODO: review method invocation
-            navigationController.setNavigationBarHidden(true);
-            navigationController.popToRootViewControllerAnimated(true);
-
-            if payment != nil {
-                // TODO: generate payment object
-                resolver();
-                resolver = nil;
-            } else {
-                // TODO: obtain MercadoPago error
-                // TODO: extract error to custom error
-                rejecter(JsErrorTypes.PAYMENT_ERRORED, "Something went wrong when retrieving Payment, please retry", nil);
-                rejecter = nil;
+        return ({(_ result: PXResult?) in
+            self.setUpNavigationController();
+            
+            if (result == nil) {
+                self.rejecter?(
+                    JsErrorTypes.PAYMENT_ERRORED,
+                    "Something went wrong when retrieving Payment, please retry",
+                    nil
+                );
+                
+                self.rejecter = nil;
             }
-        }
+            
+            var payment: [String : Any?] = [:];
+            
+            if let pxPayment = (result as? PXPayment) {
+                // Default Payment values
+                payment[JsPaymentOptions.ID] = pxPayment.id;
+                payment[JsPaymentOptions.STATUS] = pxPayment.status;
+                payment[JsPaymentOptions.STATUS_DETAIL] = pxPayment.statusDetail;
+                
+                // Additional Payment values
+                payment[JsPaymentOptions.PAYMENT_METHOD_ID] = pxPayment.paymentMethodId;
+                payment[JsPaymentOptions.PAYMENT_TYPE_ID] = pxPayment.paymentTypeId;
+                payment[JsPaymentOptions.ISSUER_ID] = pxPayment.issuerId;
+                payment[JsPaymentOptions.INSTALLMENTS] = pxPayment.installments;
+                payment[JsPaymentOptions.CAPTURED] = pxPayment.captured;
+                payment[JsPaymentOptions.LIVE_MODE] = pxPayment.liveMode;
+                payment[JsPaymentOptions.TRANSACTION_AMOUNT] = String(describing: "\(String(describing: pxPayment.transactionAmount))");
+                payment[JsPaymentOptions.TRANSACTION_DETAILS] = pxPayment.transactionDetails;
+            } else {
+                // Default Payment values
+                payment[JsPaymentOptions.ID] = Int(result?.getPaymentId() ?? "");
+                payment[JsPaymentOptions.STATUS] = result?.getStatus();
+                payment[JsPaymentOptions.STATUS_DETAIL] = result?.getStatusDetail();
+            }
+            
+            self.resolver?(payment);
+            self.resolver = nil;
+        });
     }
 
     func cancelCheckout() -> (() -> Void)? {
-        // TODO: validate this is ok?
-        return (x) {
-            // TODO: review method invocation
-            navigationController.setNavigationBarHidden(true);
-            navigationController.popToRootViewControllerAnimated(true);
+        return {
+            self.setUpNavigationController();
+            self.rejecter?(
+                JsErrorTypes.PAYMENT_CANCELLED,
+                "Payment was cancelled by the user",
+                nil
+            );
+            
+            self.rejecter = nil;
+        };
+    }
+}
 
-            // TODO: extract error to custom error
-            rejecter(JsErrorTypes.PAYMENT_CANCELLED, "Payment was cancelled by the user", nil);
-            rejecter = nil;
-        }
-    } */
+// Options for JS Module
+enum JsOptions {
+    
+    // Required Options
+    static let PUBLIC_KEY = "publicKey";
+    static let PREFERENCE_ID = "preferenceId";
+
+    // Additional Options
+    static let LANGUAGE = "language";
+    static let PRODUCT_ID = "productId";
+    static let ADVANCED_OPTIONS = "advancedOptions";
+    static let BANK_DEALS_ENABLED = "bankDealsEnabled";
+    static let AMOUNT_ROW_ENABLED = "amountRowEnabled";
+}
+
+// JS Exposed Error Types
+enum JsErrorTypes {
+    
+    // Payment Error Types
+    static let PAYMENT_ERRORED = "mp:payment_errored";
+    static let PAYMENT_CANCELLED = "mp:payment_cancelled";
+    
+    // Required Options Error Types
+    static let PUBLIC_KEY_REQUIRED = "mp:public_key_required";
+    static let PREFERENCE_ID_REQUIRED = "mp:preference_id_required";
+}
+
+// JS Payment Options
+enum JsPaymentOptions {
+    
+    // Default
+    static let ID = "id";
+    static let STATUS = "status";
+    static let STATUS_DETAIL = "statusDetail";
+    
+    // Additional
+    static let PAYMENT_METHOD_ID = "paymentMethodId";
+    static let PAYMENT_TYPE_ID = "paymentTypeId";
+    static let ISSUER_ID = "issuerId";
+    static let INSTALLMENTS = "installments";
+    static let CAPTURED = "captured";
+    static let LIVE_MODE = "liveMode";
+    static let TRANSACTION_AMOUNT = "transactionAmount";
+    static let TRANSACTION_DETAILS = "transactionDetails";
 }
