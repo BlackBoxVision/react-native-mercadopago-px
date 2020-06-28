@@ -49,6 +49,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
           'You will receive an email when the payment of the product is complete'
         );
       } else {
+        if (payment.status === 'rejected') {
+          Alert.alert(
+            'Payment Rejected',
+            'Please retry payment. If error persists contact support'
+          );
+        }
+
         Alert.alert(
           'Payment succeed',
           'You will receive an email with the invoice of your product'
