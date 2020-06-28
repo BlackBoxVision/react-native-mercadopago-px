@@ -9,9 +9,9 @@ export type TrackingOptions = {
 
 export type AdvancedOptions = {
   /**
-   * Boolean flag to determine if amount rows should be enabled
+   * Boolean flag to determine if amount row should be enabled
    */
-  amountRowsEnabled?: boolean;
+  amountRowEnabled?: boolean;
   /**
    * Boolean flag to determine if bank deals should be enabled
    */

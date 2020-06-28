@@ -275,7 +275,7 @@ The function receives the following parameters:
   - `publicKey`: **string**
   - `preferenceId`: **string**
   - `advancedOptions`: **[AdvancedOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L7)**
-    - `amountRowsEnabled`: **boolean**
+    - `amountRowEnabled`: **boolean**
     - `bankDealsEnabled`: **boolean**
     - `productId`: **string**
   - `trackingOptions`: **[TrackingOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L3)**

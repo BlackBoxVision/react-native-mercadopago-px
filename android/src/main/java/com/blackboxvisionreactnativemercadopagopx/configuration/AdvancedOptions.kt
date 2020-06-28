@@ -10,7 +10,7 @@ open class AdvancedOptions {
         private const val OPTIONS = "advancedOptions";
 
         private const val EXPRESS_PAYMENT_ENABLE = "expressPaymentEnable";
-        private const val AMOUNT_ROWS_ENABLED = "amountRowsEnabled";
+        private const val AMOUNT_ROW_ENABLED = "amountRowEnabled";
         private const val BANK_DEALS_ENABLED = "bankDealsEnabled";
         private const val PRODUCT_ID = "productId";
 
@@ -34,9 +34,9 @@ open class AdvancedOptions {
             }
 
             // Set Amount Rows Enabled
-            if (advancedOptions.hasKey(AMOUNT_ROWS_ENABLED)) {
-                val amountRowsEnabled = advancedOptions.getBoolean(AMOUNT_ROWS_ENABLED);
-                advancedBuilder.setAmountRowEnabled(amountRowsEnabled);
+            if (advancedOptions.hasKey(AMOUNT_ROW_ENABLED)) {
+                val amountRowEnabled = advancedOptions.getBoolean(AMOUNT_ROW_ENABLED);
+                advancedBuilder.setAmountRowEnabled(amountRowEnabled);
             }
 
             // Set Bank Deals Enabled
