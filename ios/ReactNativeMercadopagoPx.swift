@@ -101,26 +101,41 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
             } else {
                 var payment: [String : Any?] = [:];
                 
-                if let pxPayment = (result as? PXPayment) {
+                if let pxPayment = (result as? PXPayment?) {
                     // Default Payment values
-                    payment[JsPaymentOptions.ID] = pxPayment.id;
-                    payment[JsPaymentOptions.STATUS] = pxPayment.status;
-                    payment[JsPaymentOptions.STATUS_DETAIL] = pxPayment.statusDetail;
+                    payment[JsPaymentOptions.ID] = pxPayment?.id;
+                    payment[JsPaymentOptions.STATUS] = pxPayment?.status;
+                    payment[JsPaymentOptions.STATUS_DETAIL] = pxPayment?.statusDetail;
                     
                     // Additional Payment values
-                    payment[JsPaymentOptions.PAYMENT_METHOD_ID] = pxPayment.paymentMethodId;
-                    payment[JsPaymentOptions.PAYMENT_TYPE_ID] = pxPayment.paymentTypeId;
-                    payment[JsPaymentOptions.ISSUER_ID] = pxPayment.issuerId;
-                    payment[JsPaymentOptions.INSTALLMENTS] = pxPayment.installments;
-                    payment[JsPaymentOptions.CAPTURED] = pxPayment.captured;
-                    payment[JsPaymentOptions.LIVE_MODE] = pxPayment.liveMode;
-                    payment[JsPaymentOptions.TRANSACTION_AMOUNT] = String(describing: "\(String(describing: pxPayment.transactionAmount))");
-                    payment[JsPaymentOptions.TRANSACTION_DETAILS] = pxPayment.transactionDetails;
+                    payment[JsPaymentOptions.DESCRIPTION] = pxPayment?._description;
+                    payment[JsPaymentOptions.CURRENCY_ID] = pxPayment?.currencyId;
+                    payment[JsPaymentOptions.OPERATION_TYPE] = pxPayment?.operationType;
+                    payment[JsPaymentOptions.PAYMENT_METHOD_ID] = pxPayment?.paymentMethodId;
+                    payment[JsPaymentOptions.PAYMENT_TYPE_ID] = pxPayment?.paymentTypeId;
+                    payment[JsPaymentOptions.ISSUER_ID] = pxPayment?.issuerId;
+                    payment[JsPaymentOptions.INSTALLMENTS] = pxPayment?.installments;
+                    payment[JsPaymentOptions.CAPTURED] = pxPayment?.captured;
+                    payment[JsPaymentOptions.LIVE_MODE] = pxPayment?.liveMode;
+                    payment[JsPaymentOptions.TRANSACTION_AMOUNT] = pxPayment?.transactionAmount;
                 } else {
                     // Default Payment values
                     payment[JsPaymentOptions.ID] = Int(result?.getPaymentId() ?? "");
                     payment[JsPaymentOptions.STATUS] = result?.getStatus();
                     payment[JsPaymentOptions.STATUS_DETAIL] = result?.getStatusDetail();
+                
+                    // Additional Payment values
+                    // We fill it with empty values to match the JS Object definition
+                    payment[JsPaymentOptions.DESCRIPTION] = nil;
+                    payment[JsPaymentOptions.CURRENCY_ID] = nil;
+                    payment[JsPaymentOptions.OPERATION_TYPE] = nil;
+                    payment[JsPaymentOptions.PAYMENT_METHOD_ID] = nil;
+                    payment[JsPaymentOptions.PAYMENT_TYPE_ID] = nil;
+                    payment[JsPaymentOptions.ISSUER_ID] = nil;
+                    payment[JsPaymentOptions.INSTALLMENTS] = nil;
+                    payment[JsPaymentOptions.CAPTURED] = nil;
+                    payment[JsPaymentOptions.LIVE_MODE] = nil;
+                    payment[JsPaymentOptions.TRANSACTION_AMOUNT] = nil;
                 }
                 
                 self.resolver?(payment);
@@ -175,6 +190,9 @@ enum JsPaymentOptions {
     static let STATUS_DETAIL = "statusDetail";
     
     // Additional
+    static let DESCRIPTION = "description";
+    static let CURRENCY_ID = "currencyId";
+    static let OPERATION_TYPE = "operationType";
     static let PAYMENT_METHOD_ID = "paymentMethodId";
     static let PAYMENT_TYPE_ID = "paymentTypeId";
     static let ISSUER_ID = "issuerId";
@@ -182,5 +200,4 @@ enum JsPaymentOptions {
     static let CAPTURED = "captured";
     static let LIVE_MODE = "liveMode";
     static let TRANSACTION_AMOUNT = "transactionAmount";
-    static let TRANSACTION_DETAILS = "transactionDetails";
 }
