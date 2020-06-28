@@ -1,5 +1,16 @@
 import { NativeModules } from 'react-native';
 
+export type SupportedLanguages =
+  | 'es'
+  | 'es-MX'
+  | 'es-CO'
+  | 'es-UY'
+  | 'es-PE'
+  | 'es-VE'
+  | 'pt'
+  | 'pt-BR'
+  | 'en';
+
 export type TrackingOptions = {
   /**
    * Session ID for checkout tracking. Only android support.
@@ -32,6 +43,10 @@ export type PaymentOptions = {
    */
   preferenceId: string;
   /**
+   * Sets the language for the checkout
+   */
+  language?: SupportedLanguages;
+  /**
    * Options to enable user-tracking specific features
    */
   trackingOptions?: TrackingOptions | null;
@@ -45,11 +60,55 @@ export type Payment = {
   /**
    * ID of the payment
    */
-  id: string;
+  id: number;
   /**
    * Status of the payment
    */
   status: string;
+  /**
+   * Status of the payment with more details
+   */
+  statusDetail: string;
+  /**
+   * The Type of operation
+   */
+  operationType?: string | null;
+  /**
+   * The description of the payment
+   */
+  description?: string | null;
+  /**
+   * The ID of the currency
+   */
+  currencyId?: string | null;
+  /**
+   * The ID of the payment method
+   */
+  paymentMethodId?: string | null;
+  /**
+   * The ID of the payment type
+   */
+  paymentTypeId?: string | null;
+  /**
+   * The ID of the card issuer
+   */
+  issuerId?: string | null;
+  /**
+   * The amount of installments
+   */
+  installments?: number | null;
+  /**
+   * If the payment is captured
+   */
+  captured?: Boolean | null;
+  /**
+   * If the payment is in live mode
+   */
+  liveMode?: Boolean | null;
+  /**
+   * The amount of the transaction
+   */
+  transactionAmount?: number | null;
 };
 
 export type MercadopagoPx = {
