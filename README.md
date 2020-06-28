@@ -274,6 +274,7 @@ The function receives the following parameters:
 - `options`: **[PaymentOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L26)**
   - `publicKey`: **string**
   - `preferenceId`: **string**
+  - `language`: **string**
   - `advancedOptions`: **[AdvancedOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L7)**
     - `amountRowEnabled`: **boolean**
     - `bankDealsEnabled`: **boolean**
@@ -288,6 +289,17 @@ The `createPayment` function is async, its return value will be always a `Promis
 - `payment`: **[Payment](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L49)**
   - `id`: **string**
   - `status`: **string**
+  - `statusDetail`: **string**
+  - `operationType`: **string | null**
+  - `description`: **string | null**
+  - `currencyId`: **string | null**
+  - `paymentMethodId`: **string | null**
+  - `paymentTypeId`: **string | null**
+  - `issuerId`: **string | null**
+  - `installments`: **string | null**
+  - `captured`: **string | null**
+  - `liveMode`: **string | null**
+  - `transactionAmount`: **string | null**
 
 ## Troubleshooting
 
