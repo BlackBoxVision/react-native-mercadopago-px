@@ -9,10 +9,9 @@ open class AdvancedOptions {
     companion object {
         private const val OPTIONS = "advancedOptions";
 
-        private const val EXPRESS_PAYMENT_ENABLE = "expressPaymentEnable";
+        private const val PRODUCT_ID = "productId";
         private const val AMOUNT_ROW_ENABLED = "amountRowEnabled";
         private const val BANK_DEALS_ENABLED = "bankDealsEnabled";
-        private const val PRODUCT_ID = "productId";
 
         fun build(@NonNull options: ReadableMap): AdvancedConfiguration? {
             if (!options.hasKey(OPTIONS)) {
@@ -26,12 +25,6 @@ open class AdvancedOptions {
             }
 
             val advancedBuilder = AdvancedConfiguration.Builder();
-
-            // Set Express Payment Enabled
-            if (advancedOptions.hasKey(EXPRESS_PAYMENT_ENABLE)) {
-                val expressPaymentEnable = advancedOptions.getBoolean(EXPRESS_PAYMENT_ENABLE);
-                advancedBuilder.setExpressPaymentEnable(expressPaymentEnable);
-            }
 
             // Set Amount Rows Enabled
             if (advancedOptions.hasKey(AMOUNT_ROW_ENABLED)) {

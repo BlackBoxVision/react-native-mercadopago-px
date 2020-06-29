@@ -9,13 +9,16 @@ import com.mercadopago.android.px.core.MercadoPagoCheckout
 
 class ReactNativeMercadopagoPxModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
     companion object {
-        const val MP_NAME = "ReactNativeMercadopagoPx";
+        const val PUBLIC_KEY = "publicKey"
+        const val PREFERENCE_KEY = "preferenceId"
 
-        const val MP_PREFERENCE_KEY = "preferenceId"
-        const val MP_PRIVATE_KEY = "privateKey"
-        const val MP_PUBLIC_KEY = "publicKey"
+        const val PAYMENT_ERROR = "mp:payment_error";
+        const val PAYMENT_CANCELLED = "mp:payment_cancelled";
 
-        const val MP_REQUEST_CODE = 101;
+        const val PUBLIC_KEY_REQUIRED = "mp:public_key_required";
+        const val PREFERENCE_ID_REQUIRED = "mp:preference_id_required";
+
+        const val REQUEST_CODE = 101;
     }
 
     private var mActivityEventListener = ReactNativeMercadoPagoPxEventListener();
@@ -25,51 +28,40 @@ class ReactNativeMercadopagoPxModule(reactContext: ReactApplicationContext) : Re
     }
 
     override fun getName(): String {
-        return MP_NAME;
+        return "ReactNativeMercadopagoPx";
     }
 
     @ReactMethod
     fun createPayment(@NonNull options: ReadableMap, @NonNull promise: Promise) {
-        try {
-            mActivityEventListener.mModulePromise = promise;
+        mActivityEventListener.mModulePromise = promise;
 
-            if (!options.hasKey(MP_PUBLIC_KEY) || !options.hasKey(MP_PREFERENCE_KEY)) {
-                throw Error("publicKey and preferenceId are required for starting MercadoPago checkout");
-            }
+        val publicKey = options.getString(PUBLIC_KEY);
+        val preferenceId = options.getString(PREFERENCE_KEY);
 
-            val publicKey = options.getString(MP_PUBLIC_KEY);
-            val preferenceId = options.getString(MP_PREFERENCE_KEY);
-
-            if (publicKey == null || preferenceId == null) {
-                throw Error("publicKey and preferenceId are required for starting MercadoPago checkout");
-            }
-
-            val checkoutBuilder = MercadoPagoCheckout.Builder(publicKey, preferenceId);
-
-            val advancedOptions = AdvancedOptions.build(options);
-            val trackingOptions = TrackingOptions.build(options);
-
-            if (advancedOptions != null) {
-                checkoutBuilder.setAdvancedConfiguration(advancedOptions);
-            }
-
-            if (trackingOptions != null) {
-                checkoutBuilder.setTrackingConfiguration(trackingOptions);
-            }
-
-            if (options.hasKey(MP_PRIVATE_KEY)) {
-                val privateKey = options.getString(MP_PRIVATE_KEY);
-
-                if (privateKey != null) {
-                    checkoutBuilder.setPrivateKey(privateKey);
-                }
-            }
-
-            val checkout = checkoutBuilder.build();
-
-            checkout.startPayment(currentActivity as Context, MP_REQUEST_CODE);
-        } catch (err: Error) {
-            mActivityEventListener.mModulePromise?.reject(err);
+        if (publicKey == null) {
+            promise.reject(PUBLIC_KEY_REQUIRED, "Public key is required for starting MP Checkout");
         }
+
+        if (preferenceId == null) {
+            promise.reject(PREFERENCE_ID_REQUIRED, "Preference ID is required for starting MP Checkout");
+        }
+
+        val builder = MercadoPagoCheckout.Builder(publicKey as String, preferenceId as String);
+
+        val advancedOptions = AdvancedOptions.build(options);
+
+        if (advancedOptions != null) {
+            builder.setAdvancedConfiguration(advancedOptions);
+        }
+
+        val trackingOptions = TrackingOptions.build(options);
+
+        if (trackingOptions != null) {
+            builder.setTrackingConfiguration(trackingOptions);
+        }
+
+        val checkout = builder.build();
+
+        checkout.startPayment(currentActivity as Context, REQUEST_CODE);
     }
 }
