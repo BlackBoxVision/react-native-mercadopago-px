@@ -94,7 +94,7 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
         return ({(_ result: PXResult?) in
             if (result == nil) {
                 self.rejecter?(
-                    JsErrorTypes.PAYMENT_ERRORED,
+                    JsErrorTypes.PAYMENT_ERROR,
                     "Something went wrong when retrieving Payment, please retry",
                     nil
                 );
@@ -175,7 +175,7 @@ enum JsOptions {
 
 enum JsErrorTypes {
     // Payment Error Types
-    static let PAYMENT_ERRORED = "mp:payment_errored";
+    static let PAYMENT_ERROR = "mp:payment_error";
     static let PAYMENT_CANCELLED = "mp:payment_cancelled";
     
     // Required Options Error Types
