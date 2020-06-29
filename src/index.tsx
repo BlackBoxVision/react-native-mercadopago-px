@@ -43,11 +43,11 @@ export type PaymentOptions = {
    */
   preferenceId: string;
   /**
-   * Sets the language for the checkout
+   * Sets the language for the checkout. IOS only.
    */
   language?: SupportedLanguages;
   /**
-   * Options to enable user-tracking specific features
+   * Options to enable user-tracking specific features. Android only.
    */
   trackingOptions?: TrackingOptions | null;
   /**
