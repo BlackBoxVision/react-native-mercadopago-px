@@ -1,6 +1,8 @@
+import groovy.json.JsonSlurper
+
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
-  def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['ReactNativeMercadopagoPx_kotlinVersion']
+  def kotlin_version = project.properties['ReactNativeMercadopagoPx_kotlinVersion']
 
   repositories {
     google()
@@ -25,6 +27,13 @@ def getExtOrIntegerDefault(name) {
   return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['ReactNativeMercadopagoPx_' + name]).toInteger()
 }
 
+def getExtOrPackageJsonDefault(name) {
+  def inputFile = new File("$rootDir/../package.json")
+  def packageJson = new JsonSlurper().parseText(inputFile.text)
+
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : packageJson['sdkVersions'] ? packageJson['sdkVersions']['android']['mercadopagopx'] : "4.45.0"
+}
+
 android {
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
   buildToolsVersion getExtOrDefault('buildToolsVersion')
@@ -33,7 +42,6 @@ android {
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
     versionName "1.0"
-    
   }
   
   buildTypes {
@@ -41,9 +49,11 @@ android {
       minifyEnabled false
     }
   }
+
   lintOptions {
     disable 'GradleCompatible'
   }
+
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
@@ -62,10 +72,7 @@ repositories {
   if (rootProject.ext.has('reactNativeAndroidRoot')) {
     defaultDir = rootProject.ext.get('reactNativeAndroidRoot')
   } else {
-    defaultDir = new File(
-            projectDir,
-            '/../../../node_modules/react-native/android'
-    )
+    defaultDir = new File(projectDir, '/../../../node_modules/react-native/android')
   }
 
   if (defaultDir.exists()) {
@@ -83,15 +90,8 @@ repositories {
       if (found) return true
       parentDir = parentDir.parentFile
 
-      def androidSourcesDir = new File(
-              parentDir,
-              'node_modules/react-native'
-      )
-
-      def androidPrebuiltBinaryDir = new File(
-              parentDir,
-              'node_modules/react-native/android'
-      )
+      def androidSourcesDir = new File(parentDir, 'node_modules/react-native')
+      def androidPrebuiltBinaryDir = new File(parentDir, 'node_modules/react-native/android')
 
       if (androidPrebuiltBinaryDir.exists()) {
         maven {
@@ -114,18 +114,18 @@ repositories {
   }
 
   if (!found) {
-    throw new GradleException(
-            "${project.name}: unable to locate React Native android sources. " +
-                    "Ensure you have you installed React Native as a dependency in your project and try again."
+    throw new GradleException("${project.name}: unable to locate React Native android sources. " +
+      "Ensure you have you installed React Native as a dependency in your project and try again."
     )
   }
 }
 
-def kotlin_version = getExtOrDefault('kotlinVersion')
+def kotlin_version = project.properties['ReactNativeMercadopagoPx_kotlinVersion']
+def mercadopago_px_version = getExtOrPackageJsonDefault("mercadoPagoPxVersion")
 
 dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'com.mercadopago.android.px:checkout:4.45.0'
+  implementation "com.mercadopago.android.px:checkout:$mercadopago_px_version"
 }

@@ -25,7 +25,8 @@
     "release": "release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods"
+    "bootstrap": "yarn example && yarn && yarn pods",
+    "postversion": "react-native-version"
   },
   "keywords": [
     "react-native",
@@ -135,5 +136,13 @@
       "module",
       "typescript"
     ]
+  },
+  "sdkVersions": {
+    "ios": {
+      "mercadopagopx": "4.32.4"
+    },
+    "android": {
+      "mercadopagopx": "4.45.0"
+    }
   }
 }
