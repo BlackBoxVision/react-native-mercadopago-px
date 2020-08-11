@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "10.0" }
   s.source       = { :git => "https://github.com/BlackBoxVision/react-native-mercadopago-px.git", :tag => "#{s.version}" }
   
-  s.ios.deployment_target = "9.0"
+  s.ios.deployment_target = "10.0"
   s.source_files = "ios/**/*.{h,m,mm,swift}"
 
   s.swift_version = "4.2"

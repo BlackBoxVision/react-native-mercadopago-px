@@ -3,6 +3,8 @@ install! 'cocoapods', :disable_input_output_paths => true
 
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
+$RNMercadoPagoPxAsStaticFramework = true
+
 def add_flipper_pods!(versions = {})
   versions['Flipper'] ||= '~> 0.33.1'
   versions['DoubleConversion'] ||= '1.1.7'
