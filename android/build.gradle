@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
-  def kotlin_version = project.properties['ReactNativeMercadopagoPx_kotlinVersion']
+  def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['ReactNativeMercadopagoPx_kotlinVersion']
 
   repositories {
     google()
@@ -120,7 +120,7 @@ repositories {
   }
 }
 
-def kotlin_version = project.properties['ReactNativeMercadopagoPx_kotlinVersion']
+def kotlin_version = getExtOrDefault('kotlinVersion')
 def mercadopago_px_version = getExtOrPackageJsonDefault("mercadoPagoPxVersion")
 
 dependencies {
