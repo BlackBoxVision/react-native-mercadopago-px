@@ -59,7 +59,7 @@ If you don't have any of the followings, you can start from here:
 
 1. [Creating a MercadoPago Account](https://www.mercadopago.com.ar/)
 2. [Creating a MercadoPago Application](https://applications.mercadopago.com/)
-3. [Creating a MercadoPago preference for Checkout Payment](https://www.mercadopago.com.ar/developers/es/reference/preferences/**checkout**preferences/post/)
+3. [Creating a MercadoPago preference for Checkout Payment](https://www.mercadopago.com.ar/developers/es/reference/preferences/_checkout_preferences/post/)
 
 For Testing Purposes we provide a `cURL` example on how to create a Preference:
 
