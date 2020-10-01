@@ -85,6 +85,8 @@ curl -X POST \
 
 You'll need to replace `ACCESS_TOKEN` with your application account access token.
 
+**Warning:** remember using payer@email.com payer email to test with the rest of items in this example. Another email will not work. 
+
 If you've more doubts you can read more documentation in this portal:
 
 - [MercadoPago Developers](https://developers.mercadopago.com/)
