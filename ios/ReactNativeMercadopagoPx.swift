@@ -56,12 +56,18 @@ class ReactNativeMercadopagoPx: NSObject {
             if productId != nil {
                 config.setProductId(id: productId!);
             }
-                    
+            
             let bankDealsEnabled = advancedOptions?[JsOptions.BANK_DEALS_ENABLED] as! Bool?;
+            
+            if bankDealsEnabled != nil {
+                config.bankDealsEnabled = bankDealsEnabled!;
+            }
+                    
             let amountRowEnabled = advancedOptions?[JsOptions.AMOUNT_ROW_ENABLED] as! Bool?;
 
-            config.bankDealsEnabled = bankDealsEnabled!;
-            config.amountRowEnabled = amountRowEnabled!;
+            if amountRowEnabled != nil {
+                config.amountRowEnabled = amountRowEnabled!;
+            }
                 
             builder.setAdvancedConfiguration(config: config);
         }
