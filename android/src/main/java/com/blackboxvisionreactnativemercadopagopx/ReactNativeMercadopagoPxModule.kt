@@ -38,14 +38,6 @@ class ReactNativeMercadopagoPxModule(reactContext: ReactApplicationContext) : Re
         val publicKey = options.getString(PUBLIC_KEY);
         val preferenceId = options.getString(PREFERENCE_KEY);
 
-        if (publicKey == null) {
-            promise.reject(PUBLIC_KEY_REQUIRED, "Public key is required for starting MP Checkout");
-        }
-
-        if (preferenceId == null) {
-            promise.reject(PREFERENCE_ID_REQUIRED, "Preference ID is required for starting MP Checkout");
-        }
-
         val builder = MercadoPagoCheckout.Builder(publicKey as String, preferenceId as String);
 
         val advancedOptions = AdvancedOptions.build(options);

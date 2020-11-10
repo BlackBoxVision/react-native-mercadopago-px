@@ -19,27 +19,8 @@ class ReactNativeMercadopagoPx: NSObject {
         let publicKey = options[JsOptions.PUBLIC_KEY] as! String?;
         let preferenceId = options[JsOptions.PREFERENCE_ID] as! String?;
 
-        if (publicKey == nil) {
-            // TODO: extract error to custom error
-            self.rejecter?(
-                JsErrorTypes.PUBLIC_KEY_REQUIRED,
-                "Public key is required for starting MP Checkout",
-                nil
-            );
-        }
-
-        if (preferenceId == nil) {
-            // TODO: extract error to custom error
-            self.rejecter?(
-                JsErrorTypes.PREFERENCE_ID_REQUIRED,
-                "Preference ID is required for starting MP Checkout",
-                nil
-            );
-        }
-
         let builder = MercadoPagoCheckoutBuilder(publicKey: publicKey!, preferenceId: preferenceId!);
 
-        // TODO: add support for language in Android side
         let language = options[JsOptions.LANGUAGE] as! String?;
 
         if (language != nil) {
