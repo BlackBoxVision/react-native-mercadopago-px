@@ -34,7 +34,7 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
     - [Return Value](#return-value)
 - [Troubleshooting](#troubleshooting)
   - [It doesn't work with Expo ejected App](#it-doesnt-work-with-expo-ejected-app)
-  - [In IOS when running app in DEBUG some strings are missing](#in-ios-when-running-app-in-debug-some-strings-are-missing)
+  - [In IOS when running app some strings are missing](#in-ios-when-running-app-some-strings-are-missing)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -325,7 +325,7 @@ pod install
 
 After this change you should be able to run your Expo ejected app.
 
-### In IOS when running app in DEBUG/RELEASE some strings are missing
+### In IOS when running app some strings are missing
 
 We've found that this issue is a result of `MercadoPagoSDK` not being exposed as Dynamic Framework. Since it's statically defined, some references get messed up and strings results missing.
 
