@@ -54,6 +54,17 @@ export type PaymentOptions = {
   advancedOptions?: AdvancedOptions | null;
 };
 
+export type PaymentStatus =
+  | 'approved'
+  | 'in_mediation'
+  | 'in_process'
+  | 'pending'
+  | 'authorized'
+  | 'refunded'
+  | 'charged_back'
+  | 'cancelled'
+  | 'rejected';
+
 export type Payment = {
   /**
    * ID of the payment
@@ -62,7 +73,7 @@ export type Payment = {
   /**
    * Status of the payment
    */
-  status: string;
+  status: PaymentStatus;
   /**
    * Status of the payment with more details
    */

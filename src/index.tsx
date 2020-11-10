@@ -1,9 +1,9 @@
 import { NativeModules } from 'react-native';
 
-import { MercadopagoPx, PaymentOptions } from './types';
+import { MercadopagoPx } from './types';
 
 const RNMercadoPagoPx: MercadopagoPx = {
-  createPayment: async (options: PaymentOptions) => {
+  createPayment: async (options) => {
     if (!options) {
       throw new Error('options are required');
     }
