@@ -85,7 +85,7 @@ curl -X POST \
 
 You'll need to replace `ACCESS_TOKEN` with your application account access token.
 
-**Warning:** remember using payer@email.com payer email to test with the rest of items in this example. Another email will not work. 
+**Warning:** remember using payer@email.com payer email to test with the rest of items in this example. Another email will not work.
 
 If you've more doubts you can read more documentation in this portal:
 
@@ -325,9 +325,33 @@ pod install
 
 After this change you should be able to run your Expo ejected app.
 
-### In IOS when running app in DEBUG some strings are missing
+### In IOS when running app in DEBUG/RELEASE some strings are missing
 
-We're still investigating but when Flipper is enabled in IOS some strings from translations aren't loaded.
+We've found that this issue is a result of `MercadoPagoSDK` not being exposed as Dynamic Framework. Since it's statically defined, some references get messed up and strings results missing.
+
+To workaround this issue we recommend performing the following steps:
+
+1. Install the following plugin with ruby gem:
+
+```bash
+gem install cocoapods-user-defined-build-types
+```
+
+2. Go to your app `Podfile` and add the following lines at the top of the file:
+
+```cocoapods
+plugin 'cocoapods-user-defined-build-types'
+
+enable_user_defined_build_types!
+```
+
+3. In your app `Podfile` also add the following line in the target definition:
+
+```cocoapods
+pod 'MercadoPagoSDK', :build_type => :dynamic_framework
+```
+
+With those steps, you'll be able to run a build of your app and see that the checkout doesn't loss strings anymore.
 
 ## Issues
 
