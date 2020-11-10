@@ -98,9 +98,6 @@ class ReactNativeMercadopagoPx: NSObject {
 extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
     func finishCheckout() -> ((PXResult?) -> Void)? {
         return ({(_ result: PXResult?) in
-            self.setUpNavigationController();
-            self.cleanUp();
-
             if (result == nil) {
                 self.rejecter?(
                     JsErrorTypes.PAYMENT_ERROR,
@@ -149,19 +146,22 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
                 
                 self.resolver?(payment);
             }
+
+            self.setUpNavigationController();
+            self.cleanUp();
         });
     }
 
     func cancelCheckout() -> (() -> Void)? {
-        return {           
-            self.setUpNavigationController();
-            self.cleanUp();
-            
+        return {                       
             self.rejecter?(
                 JsErrorTypes.PAYMENT_CANCELLED,
                 "Payment was cancelled by the user",
                 nil
             );
+
+            self.setUpNavigationController();
+            self.cleanUp();
         };
     }
 }
