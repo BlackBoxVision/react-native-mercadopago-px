@@ -1,0 +1,11 @@
+# Android/IJ
+#
+.idea
+.gradle
+local.properties
+android.iml
+android/.settings
+android/.classpath
+android/.project
+android/*.iml
+android/build
