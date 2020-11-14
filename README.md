@@ -35,6 +35,7 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
 - [Troubleshooting](#troubleshooting)
   - [It doesn't work with Expo ejected App](#it-doesnt-work-with-expo-ejected-app)
   - [In IOS when running app some strings are missing](#in-ios-when-running-app-some-strings-are-missing)
+  - [In Android background color turns gray](#in-android-background-color-turns-gray)
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [License](#license)
@@ -352,6 +353,12 @@ pod 'MercadoPagoSDK', :build_type => :dynamic_framework
 ```
 
 With those steps, you'll be able to run a build of your app and see that the checkout doesn't loss strings anymore.
+
+## In Android background color turns gray
+
+Some users report an issue with `FlatList` and `ScrollView` getting a backgroundColor gray when using our library. We're currently taking efforts to see if there's an issue in the library. 
+
+As a quick workaround you can fix this by using `contentContainerStyle` in `FlatList` and `ScrollView`.
 
 ## Issues
 
