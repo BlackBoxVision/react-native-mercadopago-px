@@ -354,7 +354,7 @@ pod 'MercadoPagoSDK', :build_type => :dynamic_framework
 
 With those steps, you'll be able to run a build of your app and see that the checkout doesn't loss strings anymore.
 
-## In Android background color turns gray
+### In Android background color turns gray
 
 Some users report an issue with `FlatList` and `ScrollView` getting a backgroundColor gray when using our library. We're currently taking efforts to see if there's an issue in the library. 
 
