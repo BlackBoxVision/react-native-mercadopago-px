@@ -29,7 +29,7 @@ open class PaymentResult {
             // Default Payment values
             if (pxPayment != null) {
                 if (pxPayment.id != null) {
-                    payment.putInt(ID, pxPayment.id!!.toInt());
+                    payment.putString(ID, pxPayment.id!!.toString());
                 } else {
                     payment.putNull(ID);
                 }
