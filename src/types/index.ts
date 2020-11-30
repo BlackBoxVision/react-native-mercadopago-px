@@ -69,7 +69,7 @@ export type Payment = {
   /**
    * ID of the payment
    */
-  id: number;
+  id: string;
   /**
    * Status of the payment
    */

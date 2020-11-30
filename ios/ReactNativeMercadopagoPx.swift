@@ -5,14 +5,14 @@ import MercadoPagoSDK
 @objc(ReactNativeMercadopagoPx)
 class ReactNativeMercadopagoPx: NSObject {
     private var navigationController: UINavigationController? = nil;
-    
+
     private var resolver: RCTPromiseResolveBlock? = nil;
     private var rejecter: RCTPromiseRejectBlock? = nil;
 
     @objc(createPayment:resolver:rejecter:)
     func createPayment(options: NSDictionary, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) -> Void {
         self.navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController;
-                
+
         self.resolver = resolve;
         self.rejecter = reject;
 
@@ -31,39 +31,39 @@ class ReactNativeMercadopagoPx: NSObject {
 
         if (advancedOptions != nil) {
             let config = PXAdvancedConfiguration();
-                    
+
             let productId = advancedOptions![JsOptions.PRODUCT_ID] as! String?;
 
             if productId != nil {
                 config.setProductId(id: productId!);
             }
-            
+
             let bankDealsEnabled = advancedOptions?[JsOptions.BANK_DEALS_ENABLED] as! Bool?;
-            
+
             if bankDealsEnabled != nil {
                 config.bankDealsEnabled = bankDealsEnabled!;
             }
-                    
+
             let amountRowEnabled = advancedOptions?[JsOptions.AMOUNT_ROW_ENABLED] as! Bool?;
 
             if amountRowEnabled != nil {
                 config.amountRowEnabled = amountRowEnabled!;
             }
-                
+
             builder.setAdvancedConfiguration(config: config);
         }
-        
+
         // TODO: add support for tracking listener
         // TODO: add support for customizing fonts
         // TODO: add support for customizing colors
 
-        DispatchQueue.main.async {   
+        DispatchQueue.main.async {
             let checkout = MercadoPagoCheckout(builder: builder);
 
             checkout.start(navigationController: self.navigationController!, lifeCycleProtocol: self);
         };
     }
-    
+
     func setUpNavigationController() -> Void {
         self.navigationController?.setNavigationBarHidden(true, animated: true);
         self.navigationController?.popToRootViewController(animated: true);
@@ -87,13 +87,13 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
                 );
             } else {
                 var payment: [String : Any?] = [:];
-                
+
                 if let pxPayment = (result as? PXPayment?) {
                     // Default Payment values
-                    payment[JsPaymentOptions.ID] = pxPayment?.id;
+                    payment[JsPaymentOptions.ID] = String(pxPayment?.id);
                     payment[JsPaymentOptions.STATUS] = pxPayment?.status;
                     payment[JsPaymentOptions.STATUS_DETAIL] = pxPayment?.statusDetail;
-                    
+
                     // Additional Payment values
                     payment[JsPaymentOptions.DESCRIPTION] = pxPayment?._description;
                     payment[JsPaymentOptions.CURRENCY_ID] = pxPayment?.currencyId;
@@ -107,10 +107,10 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
                     payment[JsPaymentOptions.TRANSACTION_AMOUNT] = pxPayment?.transactionAmount;
                 } else {
                     // Default Payment values
-                    payment[JsPaymentOptions.ID] = Int(result?.getPaymentId() ?? "");
+                    payment[JsPaymentOptions.ID] = result?.getPaymentId() ?? "";
                     payment[JsPaymentOptions.STATUS] = result?.getStatus();
                     payment[JsPaymentOptions.STATUS_DETAIL] = result?.getStatusDetail();
-                
+
                     // Additional Payment values
                     // We fill it with empty values to match the JS Object definition
                     payment[JsPaymentOptions.DESCRIPTION] = nil;
@@ -124,7 +124,7 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
                     payment[JsPaymentOptions.LIVE_MODE] = nil;
                     payment[JsPaymentOptions.TRANSACTION_AMOUNT] = nil;
                 }
-                
+
                 self.resolver?(payment);
             }
 
@@ -134,7 +134,7 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
     }
 
     func cancelCheckout() -> (() -> Void)? {
-        return {                       
+        return {
             self.rejecter?(
                 JsErrorTypes.PAYMENT_CANCELLED,
                 "Payment was cancelled by the user",
@@ -164,7 +164,7 @@ enum JsErrorTypes {
     // Payment Error Types
     static let PAYMENT_ERROR = "mp:payment_error";
     static let PAYMENT_CANCELLED = "mp:payment_cancelled";
-    
+
     // Required Options Error Types
     static let PUBLIC_KEY_REQUIRED = "mp:public_key_required";
     static let PREFERENCE_ID_REQUIRED = "mp:preference_id_required";
@@ -175,7 +175,7 @@ enum JsPaymentOptions {
     static let ID = "id";
     static let STATUS = "status";
     static let STATUS_DETAIL = "statusDetail";
-    
+
     // Additional
     static let DESCRIPTION = "description";
     static let CURRENCY_ID = "currencyId";
