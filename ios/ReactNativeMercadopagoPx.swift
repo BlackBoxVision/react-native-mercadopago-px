@@ -90,7 +90,7 @@ extension ReactNativeMercadopagoPx: PXLifeCycleProtocol {
 
                 if let pxPayment = (result as? PXPayment?) {
                     // Default Payment values
-                    payment[JsPaymentOptions.ID] = String(pxPayment?.id);
+                    payment[JsPaymentOptions.ID] = String(pxPayment!.id);
                     payment[JsPaymentOptions.STATUS] = pxPayment?.status;
                     payment[JsPaymentOptions.STATUS_DETAIL] = pxPayment?.statusDetail;
 
