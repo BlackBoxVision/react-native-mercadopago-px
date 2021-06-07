@@ -18,13 +18,8 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
   - [YARN](#yarn)
 - [Library Setup](#library-setup)
   - [IOS](#ios)
-    - [Modify AppDelegate.m](#modify-appdelegatem)
-    - [Update Podfile](#update-podfile)
-      - [Update IOS Target](#update-ios-target)
-      - [Disable Input and Output Paths](#disable-input-and-output-paths)
-      - [Modify DoubleConversion, Glog and Folly](#modify-doubleconversion-glog-and-folly)
-      - [Add support for Modular Headers](#add-support-for-modular-headers)
-      - [Install Pods](#install-pods)
+    - [React Native <= 0.63.X](#)
+    - [React Native >= 0.64.X](#)
 - [Example Usage](#example-usage)
 - [Realistic Example](#realistic-example)
 - [A Note on Security](#a-note-on-security)
@@ -49,6 +44,9 @@ You're using RN for building an app, and you need to integrate MercadoPago check
 Our package currently supports apps with **RN >= 0.61.5**. `We don't have a plan currently to support olders ones, but if you need we're open to support it.`
 
 ## Pre Requisites
+
+<details>
+  <summary>Pre Requisites</summary>
 
 As a pre requisite you'll need the following before integrating the library:
 
@@ -92,7 +90,10 @@ If you've more doubts you can read more documentation in this portal:
 
 - [MercadoPago Developers](https://developers.mercadopago.com/)
 
+</details>
+
 ## Installation
+
 
 You can install this library via NPM or YARN.
 
@@ -112,9 +113,18 @@ yarn add @blackbox-vision/react-native-mercadopago-px
 
 ### IOS
 
-Setting up this library is a little bit trickier for `IOS` rathen than `Android`.
+#### React Native <= 0.63.X
 
-#### Modify AppDelegate.m
+<details>
+  <summary>React Native <= 0.63.X</summary>
+
+  Setting up this library is a little bit trickier for `IOS` rathen than `Android`.
+
+##### Add a Bridging Header
+
+Since this library uses swift, you need to generate a Bridging Header from your Xcode.
+
+##### Modify AppDelegate.m
 
 Modify your app delegate like the following:
 
@@ -129,9 +139,9 @@ Modify your app delegate like the following:
 + self.window.rootViewController = navController;
 ```
 
-#### Update Podfile
+##### Update Podfile
 
-##### Update IOS Target
+###### Update IOS Target
 
 Modify the IOS target like the following:
 
@@ -140,7 +150,7 @@ Modify the IOS target like the following:
 + platform :ios, '10.0'
 ```
 
-##### Disable Input and Output Paths
+###### Disable Input and Output Paths
 
 Add disable input output paths like the following:
 
@@ -149,7 +159,7 @@ platform :ios, '10.0'
 + install! 'cocoapods', :disable_input_output_paths => true
 ```
 
-##### Modify DoubleConversion, Glog and Folly
+###### Modify DoubleConversion, Glog and Folly
 
 Disable module headers for DoubleConversion, Glog and Folly like the following:
 
@@ -172,7 +182,7 @@ use_native_modules!
 + use_modular_headers!
 ```
 
-##### Install Pods
+###### Install Pods
 
 Install pods by running the following commands:
 
@@ -183,6 +193,82 @@ pod install
 ```
 
 With those steps fully completed, you should be able to build the IOS app accordangly.
+
+</details>
+
+#### React Native >= 0.64.X
+
+<details>
+  <summary>React Native <= 0.64.X</summary>
+
+  Setting up this library is a little bit trickier for `IOS` rathen than `Android`.
+
+##### Add a Bridging Header
+
+Since this library uses swift, you need to generate a Bridging Header from your Xcode.
+
+##### Modify AppDelegate.m
+
+Modify your app delegate like the following:
+
+```diff
+- self.window.rootViewController = rootViewController;
+
++ UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+
++ [navController setToolbarHidden:YES animated:YES];
++ [navController setNavigationBarHidden:YES];
+
++ self.window.rootViewController = navController;
+```
+
+##### Update Podfile
+
+###### Add MercadoPagoSDK as Dynamic Framework
+
+1. Install the following plugin with ruby gem:
+
+```bash
+gem install cocoapods-user-defined-build-types
+```
+
+2. Go to your app `Podfile` and add the following lines at the top of the file:
+
+```cocoapods
+plugin 'cocoapods-user-defined-build-types'
+
+enable_user_defined_build_types!
+```
+
+3. In your app `Podfile` also add the following line in the target definition:
+
+```cocoapods
+pod 'MercadoPagoSDK', :build_type => :dynamic_framework
+```
+
+###### Disable Flipper
+
+Add support for module headers like the following:
+
+```diff
+use_flipper!()
++ #use_flipper!()
+```
+
+###### Install Pods
+
+Install pods by running the following commands:
+
+```bash
+cd ios
+pod deintegrate
+pod install
+```
+
+With those steps fully completed, you should be able to build the IOS app accordangly.
+
+</details>
+
 
 ## Example Usage
 
