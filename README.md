@@ -352,6 +352,9 @@ We provide a more real sample app [here](./example).
 
 ## API
 
+<details>
+  <summary>API</summary>
+
 ### createPayment
 
 The function lets you start a MercadoPago Checkout Flow Activity/UI Controller depending on the platform that is running.
@@ -390,7 +393,12 @@ The `createPayment` function is async, its return value will be always a `Promis
   - `liveMode`: **string | null**
   - `transactionAmount`: **string | null**
 
+</details>
+
 ## Troubleshooting
+
+<details>
+  <summary>Troubleshooting</summary>
 
 ### It doesn't work with Expo ejected App
 
@@ -445,6 +453,8 @@ With those steps, you'll be able to run a build of your app and see that the che
 Some users report an issue with `FlatList` and `ScrollView` getting a backgroundColor gray when using our library. We're currently taking efforts to see if there's an issue in the library. 
 
 As a quick workaround you can fix this by using `contentContainerStyle` in `FlatList` and `ScrollView`.
+
+</details>
 
 ## Issues
 
