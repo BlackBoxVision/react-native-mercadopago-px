@@ -18,8 +18,8 @@ We previously developed [react-native-mercadopago-checkout](https://github.com/B
   - [YARN](#yarn)
 - [Library Setup](#library-setup)
   - [IOS](#ios)
-    - [React Native <= 0.63.X](#)
-    - [React Native >= 0.64.X](#)
+    - [React Native <= 0.63.X](#react-native--063x)
+    - [React Native >= 0.64.X](#react-native--064x)
 - [Example Usage](#example-usage)
 - [Realistic Example](#realistic-example)
 - [A Note on Security](#a-note-on-security)
@@ -120,11 +120,11 @@ yarn add @blackbox-vision/react-native-mercadopago-px
 
   Setting up this library is a little bit trickier for `IOS` rathen than `Android`.
 
-##### Add a Bridging Header
+#### Add a Bridging Header
 
 Since this library uses swift, you need to generate a Bridging Header from your Xcode.
 
-##### Modify AppDelegate.m
+#### Modify AppDelegate.m
 
 Modify your app delegate like the following:
 
@@ -139,9 +139,9 @@ Modify your app delegate like the following:
 + self.window.rootViewController = navController;
 ```
 
-##### Update Podfile
+#### Update Podfile
 
-###### Update IOS Target
+##### Update IOS Target
 
 Modify the IOS target like the following:
 
@@ -150,7 +150,7 @@ Modify the IOS target like the following:
 + platform :ios, '10.0'
 ```
 
-###### Disable Input and Output Paths
+##### Disable Input and Output Paths
 
 Add disable input output paths like the following:
 
@@ -159,7 +159,7 @@ platform :ios, '10.0'
 + install! 'cocoapods', :disable_input_output_paths => true
 ```
 
-###### Modify DoubleConversion, Glog and Folly
+##### Modify DoubleConversion, Glog and Folly
 
 Disable module headers for DoubleConversion, Glog and Folly like the following:
 
@@ -182,7 +182,7 @@ use_native_modules!
 + use_modular_headers!
 ```
 
-###### Install Pods
+##### Install Pods
 
 Install pods by running the following commands:
 
@@ -203,11 +203,11 @@ With those steps fully completed, you should be able to build the IOS app accord
 
   Setting up this library is a little bit trickier for `IOS` rathen than `Android`.
 
-##### Add a Bridging Header
+#### Add a Bridging Header
 
 Since this library uses swift, you need to generate a Bridging Header from your Xcode.
 
-##### Modify AppDelegate.m
+#### Modify AppDelegate.m
 
 Modify your app delegate like the following:
 
@@ -222,9 +222,9 @@ Modify your app delegate like the following:
 + self.window.rootViewController = navController;
 ```
 
-##### Update Podfile
+#### Update Podfile
 
-###### Add MercadoPagoSDK as Dynamic Framework
+##### Add MercadoPagoSDK as Dynamic Framework
 
 1. Install the following plugin with ruby gem:
 
@@ -246,7 +246,7 @@ enable_user_defined_build_types!
 pod 'MercadoPagoSDK', :build_type => :dynamic_framework
 ```
 
-###### Disable Flipper
+##### Disable Flipper
 
 Add support for module headers like the following:
 
@@ -255,7 +255,7 @@ use_flipper!()
 + #use_flipper!()
 ```
 
-###### Install Pods
+##### Install Pods
 
 Install pods by running the following commands:
 
