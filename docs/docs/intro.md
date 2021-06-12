@@ -1,35 +1,13 @@
----
-sidebar_position: 1
----
+# Intro
 
-# Tutorial Intro
+## Motivation
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Currently `MercadoPago` only brings OSS support for Native SDKs. There's no intended support for `React Native`. 
 
-## Getting Started
+Since we use a lot `MercadoPago` when developing products, we aimed to develop a SDK that acts as a Bridge for React Native letting other developers to integrate MercadoPago in its React Native Apps.
 
-Get started by **creating a new site**.
+## Experience
 
-Or **try Docusaurus immediately** with **[new.docusaurus.io](https://new.docusaurus.io)**.
+As we're bridging to the native SDKs, you'll be able to access this UI:
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**:
-
-```shell
-npx @docusaurus/init@latest init my-website classic
-```
-
-## Start your site
-
-Run the development server:
-
-```shell
-cd my-website
-
-npx docusaurus start
-```
-
-Your site starts at `http://localhost:3000`.
-
-Open `docs/intro.md` and edit some lines: the site **reloads automatically** and display your changes.
+<img src="https://http2.mlstatic.com/frontend-assets/dx-devsite/mobile-sdk-flow.png?v=3.9.2-rc-1" />
