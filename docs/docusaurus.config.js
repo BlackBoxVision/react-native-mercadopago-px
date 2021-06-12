@@ -15,6 +15,11 @@ module.exports = {
   },
   themeConfig: {
     sidebarCollapsible: false,
+    gtag: {
+      // TODO: replace
+      trackingID: 'UA-141789564-1',
+      anonymizeIP: true, 
+    },
     navbar: {
       title: 'React Native MercadoPago PX',
       logo: {
@@ -72,10 +77,6 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
               href: 'https://github.com/facebook/docusaurus',
             },
@@ -95,16 +96,19 @@ module.exports = {
           editUrl:
             'https://github.com/facebook/docusaurus/edit/master/website/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       },
     ],
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        changefreq: 'weekly',
+        priority: 0.5,
+        trailingSlash: false,
+      },
+    ],
+    '@docusaurus/plugin-google-gtag'
   ],
 };
