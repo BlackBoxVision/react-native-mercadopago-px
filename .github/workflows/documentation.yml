@@ -37,6 +37,7 @@ jobs:
       - name: Release to GitHub Pages
         env:
           USE_SSH: true
+          GIT_USER: ${{ secrets.GIT_USER }}
         run: |
           git config --global user.email "${{ secrets.GIT_EMAIL }}"
           git config --global user.name "${{ secrets.GIT_USER }}"
