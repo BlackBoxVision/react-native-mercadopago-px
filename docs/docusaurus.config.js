@@ -9,6 +9,10 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'BlackBoxVision', 
   projectName: 'react-native-mercadopago-px', 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+  },
   themeConfig: {
     sidebarCollapsible: false,
     navbar: {
@@ -18,6 +22,10 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },
         {
           type: 'doc',
           docId: 'intro',

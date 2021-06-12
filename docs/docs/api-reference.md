@@ -1,10 +1,8 @@
-# API
+# API Reference 
 
-## Reference 
+## Methods
 
-### Methods
-
-#### `createPayment`
+### `createPayment`
 
 ```javascript
 static async createPayment(options: PaymentOptions): Promise<Payment>
@@ -12,21 +10,21 @@ static async createPayment(options: PaymentOptions): Promise<Payment>
 
 This function lets you start a MercadoPago Checkout Flow Activity or UI Controller depending on the platform that is running.
 
-##### Parameters
+#### Parameters
 
 | Name      | Type                                               | Description                                                            |
 | --------- | -------------------------------------------------- | ---------------------------------------------------------------------- |
 | `options` | [`PaymentOptions`](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/types/index.ts#L34)                               | An object which contains the payment configuration.                                                       |
 
-##### Return value
+#### Return value
 
 | Name      | Type                                               | Description                                                            |
 | --------- | -------------------------------------------------- | ---------------------------------------------------------------------- |
 | `payment` | [`Payment`](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/types/index.ts#L68)                                | An object which contains the payment information.                                                       |
 
-### Type Definitions
+## Type Definitions
 
-#### PaymentOptions
+### PaymentOptions
 
 - `options`: **[PaymentOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L26)**
   - `publicKey`: **string** - Key generated from your account to launch a checkout
@@ -39,7 +37,7 @@ This function lets you start a MercadoPago Checkout Flow Activity or UI Controll
   - `trackingOptions`: **[TrackingOptions](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/types/index.ts#L12)**
     - `sessionId`: **string** - Session ID for checkout tracking, **Android only**
 
-#### Payment
+### Payment
 
 - `payment`: **[Payment](https://github.com/BlackBoxVision/react-native-mercadopago-px/blob/master/src/index.tsx#L49)**
   - `id`: **string** - ID of the payment

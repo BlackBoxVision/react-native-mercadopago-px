@@ -1,8 +1,8 @@
 # Troubleshooting
 
-## Expo
+## iOS
 
-### It doesn't work with an ejected App
+### It doesn't work with an Expo ejected App
 
 Yes. It does! But to be able to work with `Expo`, you need to do the following adjustment in your `Podfile`.
 
@@ -21,8 +21,6 @@ pod install
 ```
 
 After this change you should be able to run your Expo ejected app.
-
-## iOS
 
 ### When running some strings are missing
 

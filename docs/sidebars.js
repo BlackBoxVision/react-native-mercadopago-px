@@ -39,13 +39,8 @@ module.exports = {
     },
     {
       type: "doc",
-      id: "security",
-      label: "Security",
-    },
-    {
-      type: "doc",
-      id: "api",
-      label: "API",
+      id: "api-reference",
+      label: "API Reference",
     },
     {
       type: "doc",
