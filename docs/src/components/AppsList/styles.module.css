@@ -30,3 +30,10 @@
   text-align: center;
   width: 100%;
 }
+
+.caption {
+  color: #002b40;
+  font-size: 14px;
+  margin: 32px 0;
+  text-align: center;
+}

@@ -43,3 +43,40 @@ body {
 .footer--dark {
   --ifm-footer-background-color: #002b40;
 }
+
+.navbar__brand {
+  margin: 0 1rem;
+}
+
+.navbar__toggle {
+  color: #fff;
+  margin-right: 1rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  :root {
+    --ifm-menu-color: #e0e0e0;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  :root {
+    --ifm-menu-color: #e0e0e0;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  :root {
+    --ifm-menu-color: #e0e0e0;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  :root {
+    --ifm-menu-color: #e0e0e0;
+  }
+}

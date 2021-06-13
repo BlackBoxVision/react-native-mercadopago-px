@@ -39,6 +39,10 @@ const AppsList = () => {
             <AppItem key={idx} {...props} />
           ))}
         </div>
+        <p className={styles.caption}>
+          Si lo estás usando y querés que tu app aparezca, hacenos un PR
+          agregando tu aplicación
+        </p>
       </div>
     </section>
   );
