@@ -16,15 +16,16 @@
 }
 
 .appLogo {
-  height: auto;
-  width: 240px;
-  display: flex;
   align-items: center;
+  height: auto;
+  display: flex;
+  margin-bottom: 3rem;
   justify-content: center;
+  width: 240px;
 }
 
 .appListTitle {
-  color: #002b40;
+  /* color: #002b40; */
   font-weight: 500;
   font-size: 32px;
   text-align: center;
@@ -32,7 +33,7 @@
 }
 
 .caption {
-  color: #002b40;
+  /* color: #002b40; */
   font-size: 14px;
   margin: 32px 0;
   text-align: center;

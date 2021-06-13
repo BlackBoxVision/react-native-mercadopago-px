@@ -24,15 +24,21 @@ body {
   --ifm-code-font-size: 95%;
 }
 
+html[data-theme="dark"] {
+  --ifm-heading-color: #fff;
+  --ifm-navbar-link-color: #fff;
+}
+
+html[data-theme="light"] {
+  --ifm-heading-color: var(--ifm-color-primary);
+  --ifm-navbar-link-color: #fff;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-.navbar__link {
-  color: #e0e0e0;
 }
 
 .hero {
@@ -51,32 +57,4 @@ body {
 .navbar__toggle {
   color: #fff;
   margin-right: 1rem;
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  :root {
-    --ifm-menu-color: #e0e0e0;
-  }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  :root {
-    --ifm-menu-color: #e0e0e0;
-  }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  :root {
-    --ifm-menu-color: #e0e0e0;
-  }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  :root {
-    --ifm-menu-color: #e0e0e0;
-  }
 }
