@@ -7,7 +7,26 @@
   width: 100%;
 }
 
+.appLogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+}
+
 .appLogo {
   height: auto;
   width: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appListTitle {
+  color: #002b40;
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+  width: 100%;
 }

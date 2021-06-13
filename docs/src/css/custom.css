@@ -37,6 +37,7 @@ body {
 
 .hero {
   background: no-repeat url("../../static/img/hero.png");
+  background-size: cover;
 }
 
 .footer--dark {

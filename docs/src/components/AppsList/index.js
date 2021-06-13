@@ -7,11 +7,11 @@ import { data } from "./constants";
 const AppItem = ({ logo, title, description }) => {
   return (
     <div className={clsx("col col--4")}>
-      <div>
+      <div className={styles.appLogoContainer}>
         <img alt={title} src={logo} className={styles.appLogo} />
         {/* <Svg className={styles.featureSvg} alt={title} /> */}
       </div>
-      <div className="text--center padding-horiz--md">
+      <div>
         {title && <h3>{title}</h3>}
         {description && <p>{description}</p>}
       </div>
@@ -27,28 +27,17 @@ const AppsList = () => {
           className="row"
           style={{
             marginTop: 32,
+            marginBottom: 32,
           }}
         >
-          <span
-            style={{
-              color: "#002B40",
-              fontWeight: 500,
-              fontSize: 24,
-            }}
-          >
-            Estas aplicaciones ya lo están utilizando...
-          </span>
+          <h4 className={styles.appListTitle}>
+            Estas aplicaciones ya lo están utilizando
+          </h4>
         </div>
         <div className="row">
           {data.map((props, idx) => (
             <AppItem key={idx} {...props} />
           ))}
-        </div>
-        <div className="row">
-          <span style={{ color: "#002B40", fontSize: 14 }}>
-            Si lo estás usando y querés que tu app aparezca, hacenos un PR
-            agregando tu aplicación
-          </span>
         </div>
       </div>
     </section>
