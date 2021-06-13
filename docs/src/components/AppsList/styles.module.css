@@ -1,13 +1,13 @@
 /* stylelint-disable docusaurus/copyright-header */
 
-.features {
+.section {
   display: flex;
   align-items: center;
   padding: 2rem 0;
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.appLogo {
+  height: auto;
+  width: 240px;
 }

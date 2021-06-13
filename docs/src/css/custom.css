@@ -6,20 +6,21 @@
  */
 
 /* You can override the default Infima variables here. */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-html, body {
-  font-family: 'Poppins', sans-serif;
+html,
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary: #002b40;
+  --ifm-color-primary-dark: #00273a;
+  --ifm-color-primary-darker: #002536;
+  --ifm-color-primary-darkest: #001e2d;
+  --ifm-color-primary-light: #002f46;
+  --ifm-color-primary-lighter: #00314a;
+  --ifm-color-primary-lightest: #003853;
   --ifm-code-font-size: 95%;
 }
 
@@ -28,4 +29,16 @@ html, body {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+.navbar__link {
+  color: #e0e0e0;
+}
+
+.hero {
+  background: no-repeat url("../../static/img/hero.png");
+}
+
+.footer--dark {
+  --ifm-footer-background-color: #002b40;
 }

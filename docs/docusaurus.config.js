@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'React Native MercadoPago PX',
-  tagline: 'Dinosaurs are cool',
+  tagline: '¿Necesitás soporte para implementar la librería?',
   url: 'https://blackboxvision.github.io',
   baseUrl: process.env.BASE_URL || '/',
   onBrokenLinks: 'throw',
@@ -24,8 +24,9 @@ module.exports = {
       title: '',
       logo: {
         alt: 'BBV Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
+      style: 'primary',
       items: [
         {
           type: 'localeDropdown',
