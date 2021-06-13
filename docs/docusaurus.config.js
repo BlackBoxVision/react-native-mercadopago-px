@@ -21,9 +21,9 @@ module.exports = {
       anonymizeIP: true, 
     },
     navbar: {
-      title: 'React Native MercadoPago PX',
+      title: '',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'BBV Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -46,44 +46,7 @@ module.exports = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} BlackBox Vision`,
+      copyright: 'Made with ❤️ by BlackBox Vision',
     },
   },
   presets: [
