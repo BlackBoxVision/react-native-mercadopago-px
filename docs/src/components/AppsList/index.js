@@ -6,15 +6,47 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Loader from "./components/Loader";
 import styles from "./styles.module.css";
 
-const AppItem = ({ logo, title, description }) => {
+const AppItem = ({ logo, title, description, googlePlayUrl, appStoreUrl }) => {
   return (
     <div className={clsx("col col--4")}>
-      <div className={styles.appLogoContainer}>
-        <img alt={title} src={logo} className={styles.appLogo} />
-      </div>
-      <div className={styles.infoContainer}>
-        {title && <h3 className={styles.title}>{title}</h3>}
-        {description && <p>{description}</p>}
+      <div
+        style={{
+          margin: 16,
+          padding: 16,
+          borderRadius: 16,
+          border: "1px solid #002b40",
+        }}
+      >
+        <div className={styles.appLogoContainer}>
+          <img alt={title} src={logo} className={styles.appLogo} />
+        </div>
+        <div>
+          {title && <h3 className={styles.title}>{title}</h3>}
+          {description && <p>{description}</p>}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <a
+              href={googlePlayUrl}
+              target="_blank"
+              rel="noopener noreferer"
+              style={{ padding: 8 }}
+            >
+              Android
+            </a>
+            <a
+              href={appStoreUrl}
+              target="_blank"
+              rel="noopener noreferer"
+              style={{ padding: 8 }}
+            >
+              iOS
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
