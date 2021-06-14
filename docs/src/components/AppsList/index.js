@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import Translate from "@docusaurus/Translate";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 import styles from "./styles.module.css";
-import { data } from "./constants";
 
 const AppItem = ({ logo, title, description }) => {
   return (
     <div className={clsx("col col--4")}>
       <div className={styles.appLogoContainer}>
         <img alt={title} src={logo} className={styles.appLogo} />
-        {/* <Svg className={styles.featureSvg} alt={title} /> */}
       </div>
-      <div>
-        {title && <h3>{title}</h3>}
+      <div className={styles.infoContainer}>
+        {title && <h3 className={styles.title}>{title}</h3>}
         {description && <p>{description}</p>}
       </div>
     </div>
@@ -21,6 +20,39 @@ const AppItem = ({ logo, title, description }) => {
 };
 
 const AppsList = () => {
+  const [apps, setApps] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { siteConfig } = useDocusaurusContext();
+
+  useEffect(() => {
+    fetch(`${siteConfig.baseUrl}static/appsList.json`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(setApps)
+      .catch((err) => console.error("err: ", err))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section className={styles.section}>
+        <div
+          className="row"
+          style={{
+            marginTop: 32,
+            marginBottom: 32,
+          }}
+        >
+          Loading...
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -38,9 +70,9 @@ const AppsList = () => {
           </h4>
         </div>
         <div className="row">
-          {data.map((props, idx) => (
-            <AppItem key={idx} {...props} />
-          ))}
+          {Array.isArray(apps) &&
+            apps.length > 0 &&
+            apps.map((props, idx) => <AppItem key={idx} {...props} />)}
         </div>
         <p className={styles.appListText}>
           <Translate id="home.appListText">

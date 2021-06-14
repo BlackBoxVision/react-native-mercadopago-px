@@ -7,6 +7,14 @@
   width: 100%;
 }
 
+.infoContainer {
+  margin-bottom: 3rem;
+}
+
+.title {
+  text-align: center;
+}
+
 .appLogoContainer {
   display: flex;
   justify-content: center;
@@ -19,7 +27,6 @@
   align-items: center;
   height: auto;
   display: flex;
-  margin-bottom: 3rem;
   justify-content: center;
   width: 240px;
 }
