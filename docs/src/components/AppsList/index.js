@@ -108,12 +108,18 @@ const AppsList = () => {
             ))
           )}
         </div>
-        <p className={styles.appListText}>
-          <Translate id="home.appListText">
-            If you are using it and you want your app to appear, give us a PR by
-            adding your application
-          </Translate>
-        </p>
+        <a
+          href="https://github.com/BlackBoxVision/react-native-mercadopago-px#add-your-app"
+          target="_blank"
+          rel="noopener noreferer"
+        >
+          <p className={styles.appListText}>
+            <Translate id="home.appListText">
+              If you are using it and you want your app to appear, give us a PR
+              by adding your application
+            </Translate>
+          </p>
+        </a>
       </div>
     </section>
   );
