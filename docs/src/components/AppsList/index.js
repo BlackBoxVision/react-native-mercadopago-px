@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import Translate from "@docusaurus/Translate";
 
 import styles from "./styles.module.css";
 import { data } from "./constants";
@@ -31,7 +32,9 @@ const AppsList = () => {
           }}
         >
           <h4 className={styles.appListTitle}>
-            Estas aplicaciones ya lo están utilizando
+            <Translate id="home.appListTitle">
+              These apps are already using it
+            </Translate>
           </h4>
         </div>
         <div className="row">
@@ -39,9 +42,11 @@ const AppsList = () => {
             <AppItem key={idx} {...props} />
           ))}
         </div>
-        <p className={styles.caption}>
-          Si lo estás usando y querés que tu app aparezca, hacenos un PR
-          agregando tu aplicación
+        <p className={styles.appListText}>
+          <Translate id="home.appListText">
+            If you are using it and you want your app to appear, give us a PR by
+            adding your application
+          </Translate>
         </p>
       </div>
     </section>

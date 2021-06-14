@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Translate from "@docusaurus/Translate";
 
 import Header from "../components/Header";
 import AppsList from "../components/AppsList";
@@ -20,7 +21,9 @@ const Home = () => {
       <Header />
       <div className={styles.banner}>
         <p className={clsx("hero__subtitle", styles.bannerText)}>
-          {siteConfig.tagline}
+          <Translate id="home.tagline" description="The homepage tagline">
+            {siteConfig.tagline}
+          </Translate>
         </p>
         <div className={styles.buttons}>
           <Link
@@ -28,7 +31,9 @@ const Home = () => {
             className="button button--secondary button--lg"
             to="mailto:hello@blackbox-vision.tech?subject=React Native MercadoPago PX"
           >
-            Contáctanos
+            <Translate id="home.cta" description="The homepage call to action">
+              Contact Us
+            </Translate>
           </Link>
         </div>
       </div>
