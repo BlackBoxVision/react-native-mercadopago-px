@@ -6,7 +6,14 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Loader from "./components/Loader";
 import styles from "./styles.module.css";
 
-const AppItem = ({ logo, title, description, googlePlayUrl, appStoreUrl }) => {
+const AppItem = ({
+  baseUrl,
+  logo,
+  title,
+  description,
+  googlePlayUrl,
+  appStoreUrl,
+}) => {
   return (
     <div className={clsx("col col--4")}>
       <div
@@ -18,7 +25,11 @@ const AppItem = ({ logo, title, description, googlePlayUrl, appStoreUrl }) => {
         }}
       >
         <div className={styles.appLogoContainer}>
-          <img alt={title} src={logo} className={styles.appLogo} />
+          <img
+            alt={title}
+            src={`${baseUrl}${logo}`}
+            className={styles.appLogo}
+          />
         </div>
         <div>
           {title && <h3 className={styles.title}>{title}</h3>}
@@ -92,7 +103,9 @@ const AppsList = () => {
           ) : (
             Array.isArray(apps) &&
             apps.length > 0 &&
-            apps.map((props, idx) => <AppItem key={idx} {...props} />)
+            apps.map((props, idx) => (
+              <AppItem key={idx} {...props} baseUrl={siteConfig.baseUrl} />
+            ))
           )}
         </div>
         <p className={styles.appListText}>
