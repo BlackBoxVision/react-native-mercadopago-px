@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Translate from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
+import Loader from "./components/Loader";
 import styles from "./styles.module.css";
 
 const AppItem = ({ logo, title, description }) => {
@@ -25,7 +26,7 @@ const AppsList = () => {
   const { siteConfig } = useDocusaurusContext();
 
   useEffect(() => {
-    fetch(`${siteConfig.baseUrl}static/appsList.json`, {
+    fetch(`${siteConfig.baseUrl}appsList.json`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -36,22 +37,6 @@ const AppsList = () => {
       .catch((err) => console.error("err: ", err))
       .finally(() => setIsLoading(false));
   }, []);
-
-  if (isLoading) {
-    return (
-      <section className={styles.section}>
-        <div
-          className="row"
-          style={{
-            marginTop: 32,
-            marginBottom: 32,
-          }}
-        >
-          Loading...
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section className={styles.section}>
@@ -70,9 +55,13 @@ const AppsList = () => {
           </h4>
         </div>
         <div className="row">
-          {Array.isArray(apps) &&
+          {isLoading ? (
+            <Loader />
+          ) : (
+            Array.isArray(apps) &&
             apps.length > 0 &&
-            apps.map((props, idx) => <AppItem key={idx} {...props} />)}
+            apps.map((props, idx) => <AppItem key={idx} {...props} />)
+          )}
         </div>
         <p className={styles.appListText}>
           <Translate id="home.appListText">
