@@ -42,7 +42,10 @@ curl -X POST \
 
 Vas a necesitar reemplazar en `ACCESS_TOKEN` con el token de acceso de la aplicación que hayas generado con tu cuenta de `MercadoPago`. 
 
-**Aviso:** recordá usar `payer@email.com` para poder probar el ejemplo de `cURL`. **Otro email no va a funcionar**.
+<div class="alert alert--warning" role="alert">
+  Recordá usar <strong>payer@email.com</strong> para poder probar el ejemplo de `cURL`. <strong>Otro email no va a funcionar</strong>.
+</div> 
+<br/>
 
 Si tenes más dudas podes leer más documentación en este portal: 
 
