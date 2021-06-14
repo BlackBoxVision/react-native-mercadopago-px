@@ -9,6 +9,12 @@ const getWindowDimensions = () => {
       height,
     };
   }
+
+  // set hardcode values to fix SSR
+  return {
+    width: 250,
+    height: 250,
+  }
 };
 
 export const useWindowDimensions = () => {
