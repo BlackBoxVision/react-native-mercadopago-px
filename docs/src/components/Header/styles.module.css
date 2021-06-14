@@ -10,6 +10,18 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  height: 100vh;
+}
+
+.contentContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.heroText {
+  padding: 16px;
 }
 
 @media screen and (max-width: 966px) {
@@ -22,4 +34,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .contentContainer {
+    flex-wrap: wrap;
+  }
+
+  .heroBanner {
+    height: auto;
+  }
+
+  .heroText {
+    padding: 16px;
+  }
 }

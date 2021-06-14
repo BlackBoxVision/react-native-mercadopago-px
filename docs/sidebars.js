@@ -1,5 +1,4 @@
 module.exports = {
-
   tutorialSidebar: [
     {
       type: "doc",
@@ -29,7 +28,7 @@ module.exports = {
           type: "doc",
           id: "ios-setup/react-native-064",
           label: "React Native >= 0.64",
-        }
+        },
       ],
     },
     {

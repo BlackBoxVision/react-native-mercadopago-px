@@ -1,0 +1,45 @@
+/* stylelint-disable docusaurus/copyright-header */
+
+.section {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.infoContainer {
+  margin-bottom: 3rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.appLogoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 140px;
+}
+
+.appLogo {
+  align-items: center;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  width: 240px;
+}
+
+.appListTitle {
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+  width: 100%;
+}
+
+.appListText {
+  font-size: 14px;
+  margin: 32px 0;
+  text-align: center;
+}

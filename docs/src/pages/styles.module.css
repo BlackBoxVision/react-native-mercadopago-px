@@ -1,0 +1,9 @@
+.banner {
+  padding: 4rem 0;
+  text-align: center;
+  background-color: #002b40;
+}
+
+.bannerText {
+  color: white;
+}
