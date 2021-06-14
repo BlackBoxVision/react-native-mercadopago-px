@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.iOS Setup": {
+    "message": "Configuración en iOS",
+    "description": "El nombre de la categoría Configuración en iOS en el sidebar"
+  },
+  "sidebar.tutorialSidebar.doc.Installation": {
+    "message": "Instalación",
+    "description": "El nombre del item de menú instalación en el sidebar"
+  },
+  "sidebar.tutorialSidebar.doc.usage": {
+    "message": "Uso",
+    "description": "El nombre del item de menú uso en el sidebar"
+  }
+}
