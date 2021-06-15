@@ -16,6 +16,15 @@ We showcase the apps using currently our SDK. If you want to add your applicatio
 2. Upload your images to `docs/static/img`.
 3. Perform a PR.
 
+## Enterprise Support 
+
+We offer enterprise support for the following cases: 
+
+- Make adjustments in the library or improve it to support a non-existent case.
+- Help you perform an E2E integration in mobile, web and server-side.
+
+In any case, you can <a href="mailto:hello@blackbox-vision.tech?subject=Enterprise Support - React Native MercadoPago PX">contact us</a> and we'll try to help you offering our experience. 
+
 ## Issues
 
 Please, open an [issue](https://github.com/BlackBoxVision/react-native-mercadopago-px/issues) following one of the issues templates. We will do our best to fix them.
