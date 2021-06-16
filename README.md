@@ -6,7 +6,7 @@ React Native Unofficial SDK for integrating MercadoPago PX Native UIs.
 
 ## Getting Started
 
-To integrate this SDK you can check out our [docs](https://blackboxvision.github.io/react-native-mercadopago-px/docs/intro).
+To integrate this SDK you can check out our [docs](https://react-native-mercadopago-px.blackbox-vision.tech/docs/intro).
 
 ## Add your App 
 
