@@ -16,8 +16,7 @@ module.exports = {
   themeConfig: {
     sidebarCollapsible: false,
     gtag: {
-      // TODO: replace
-      trackingID: "UA-141789564-1",
+      trackingID: "G-0GFY9V2RXH",
       anonymizeIP: true,
     },
     navbar: {
