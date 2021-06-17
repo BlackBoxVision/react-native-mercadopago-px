@@ -1,19 +1,19 @@
 [
   {
     "title": "Seguros SURA",
-    "logo": "/img/sura-logo.png",
+    "logo": "img/sura-logo.png",
     "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.sura",
     "appStoreUrl": "https://apps.apple.com/ar/app/seguros-sura-argentina/id1315068644"
   },
   {
     "title": "Answer Seguros",
-    "logo": "/img/answer-logo.png",
+    "logo": "img/answer-logo.png",
     "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.answerseguros",
     "appStoreUrl": "https://apps.apple.com/ar/app/answer-seguros/id1353135948"
   },
   {
     "title": "Hola Doc",
-    "logo": "/img/holadoc-logo.png",
+    "logo": "img/holadoc-logo.png",
     "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.holadoc.app.usuario",
     "appStoreUrl": "https://apps.apple.com/eg/app/holadoc/id1511792277"
   }
