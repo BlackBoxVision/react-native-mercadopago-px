@@ -4,7 +4,7 @@
 
 ### Generación
 
-Como requisito vas a necesitar tener lo siguiente antes de integrarte con nuestra biblioteca: 
+Como requisito vas a necesitar tener lo siguiente antes de integrarte con nuestra biblioteca:
 
 1. Una cuenta en MercadoPago
 2. Una `llave pública` asociada a tu cuenta
@@ -16,9 +16,9 @@ Si no tenes nada de esto, podes empezar acá:
 2. [Crear una aplicación en MercadoPago](https://applications.mercadopago.com)
 3. [Crear una preferencia de pago en MercadoPago](https://www.mercadopago.com.ar/developers/es/reference/preferences/_checkout_preferences/post/)
 
-### Pruebas 
+### Pruebas
 
-A propósitos de pruebas te proveemos un ejemplo de `cURL` sobre como crear una preferencia: 
+A propósitos de pruebas te proveemos un ejemplo de `cURL` sobre como crear una preferencia:
 
 ```bash
 curl -X POST \
@@ -40,13 +40,13 @@ curl -X POST \
     }'
 ```
 
-Vas a necesitar reemplazar en `ACCESS_TOKEN` con el token de acceso de la aplicación que hayas generado con tu cuenta de `MercadoPago`. 
+Vas a necesitar reemplazar en `ACCESS_TOKEN` con el token de acceso de la aplicación que hayas generado con tu cuenta de `MercadoPago`.
 
-<div class="alert alert--warning" role="alert">
+<div class="alert alert--warning" role="alert" style={{ backgroundColor: '#FFD026', color: '#444444' }}>
   Recordá usar <strong>payer@email.com</strong> para poder probar el ejemplo de `cURL`. <strong>Otro email no va a funcionar</strong>.
 </div> 
 <br/>
 
-Si tenes más dudas podes leer más documentación en este portal: 
+Si tenes más dudas podes leer más documentación en este portal:
 
 - [Portal de desarrollo de MercadoPago](https://developers.mercadopago.com)

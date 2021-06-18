@@ -3,6 +3,10 @@
     "message": "Next",
     "description": "The label for version current"
   },
+  "sidebar.tutorialSidebar.doc.Compatibility": {
+    "message": "Compatibilidad",
+    "description": "El nombre del item de menú para compatibilidad"
+  },
   "sidebar.tutorialSidebar.category.iOS Setup": {
     "message": "Configuración en iOS",
     "description": "El nombre de la categoría Configuración en iOS en el sidebar"

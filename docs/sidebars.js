@@ -16,6 +16,11 @@ module.exports = {
       label: "Installation",
     },
     {
+      type: "doc",
+      id: "compatibility",
+      label: "Compatibility",
+    },
+    {
       type: "category",
       label: "iOS Setup",
       items: [

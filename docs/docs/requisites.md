@@ -42,7 +42,7 @@ curl -X POST \
 
 You'll need to replace `ACCESS_TOKEN` with your application account access token.
 
-<div class="alert alert--warning" role="alert">
+<div class="alert alert--warning" role="alert" style={{ backgroundColor: '#FFD026', color: '#002b40' }}>
   Remember using <strong>payer@email.com</strong> payer email to test with the rest of items in this example. <strong>Another email will not work.</strong>
 </div> 
 <br/>
