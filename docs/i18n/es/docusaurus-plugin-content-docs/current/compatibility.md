@@ -27,7 +27,7 @@ Nuestro objetivo principal con [Expo](https://expo.io/) es ayudar a proveer la m
 
 Si estás usando la última versión de Expo (SDK 41+), vamos a contribuir desarrollando un `Plugin de configuración` que ayude a simplificar los pasos requeridos para poder soportar iOS. Podes seguir el estado del desarrollo en esta [`tarea`](https://github.com/BlackBoxVision/react-native-mercadopago-px/issues/45).
 
-Por ahora, como no tenemos desarrollo el `Plugin de configuración` los únicos proyectos de Expo que podrán usar nuestra biblioteca serán aquellos que hayan sido `eyectados` o creados mediante el `bare-workflow`.
+Por ahora, como no tenemos desarrollado el `Plugin de configuración` los únicos proyectos de Expo que podrán usar nuestra biblioteca serán aquellos que hayan sido `eyectados` o creados mediante el `bare-workflow`.
 
 ### Expo < SDK 41
 
