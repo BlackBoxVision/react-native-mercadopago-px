@@ -1,6 +1,6 @@
 # Instalación
 
-Podes instalar la librería mediante `NPM` o `YARN`.
+Podés instalar la librería mediante `NPM` o `YARN`.
 
 ## NPM
 

@@ -66,7 +66,7 @@ use_native_modules!
 
 ## Instalar los Pods
 
-Instala los `Pods` corriendo el siguiente comando:
+Instalá los `Pods` corriendo el siguiente comando:
 
 ```bash
 cd ios
