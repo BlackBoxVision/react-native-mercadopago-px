@@ -10,7 +10,7 @@ Siempre buscamos tener compatibilidad con las mayor cantidad de versiones de `Re
 
 ## React Native
 
-**Nuestra intensión es soportar versiones de [React Native](https://reactnative.dev) >= 0.60.**
+**Nuestra intención es soportar versiones de [React Native](https://reactnative.dev) >= 0.60.**
 
 Hemos testeado nuestra biblioteca con las siguientes versiones:
 
