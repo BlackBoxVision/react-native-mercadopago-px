@@ -33,7 +33,7 @@ Vas a necesitar configurar el SDK de MercadoPago como un framework dinámico, pa
 gem install cocoapods-user-defined-build-types
 ```
 
-2. Anda al `Podfile` y agrega las siguientes lineas al comienzo del mismo:
+2. Ir al `Podfile` y agrega las siguientes lineas al comienzo del mismo:
 
 ```cocoapods
 plugin 'cocoapods-user-defined-build-types'
@@ -41,7 +41,7 @@ plugin 'cocoapods-user-defined-build-types'
 enable_user_defined_build_types!
 ```
 
-3. Siguiendo dentro del `Podfile` en la definición de targets agrega la siguiente linea: 
+3. Siguiendo dentro del `Podfile` en la definición de targets agregar la siguiente linea: 
 
 ```cocoapods
 pod 'MercadoPagoSDK', :build_type => :dynamic_framework
@@ -58,7 +58,7 @@ use_flipper!()
 
 ## Instalar los Pods
 
-Instala los `Pods` corriendo el siguiente comando:
+Instalá los `Pods` corriendo el siguiente comando:
 
 ```bash
 cd ios

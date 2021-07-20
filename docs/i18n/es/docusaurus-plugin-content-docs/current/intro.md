@@ -4,7 +4,7 @@
 
 Actualmente `MercadoPago` solo brinda soporte de código abierto para sus SDKs nativos. No hay soporte para `React Native`.
 
-Nosotros usamos mucho `MercadoPago` al desarrollar productos, es por eso que desarrollamos este SDK que actua como un puente entre React Native y Nativo, permitiendo a otros desarrolladores que integren MercadoPago en sus aplicaciones.
+Nosotros usamos mucho `MercadoPago` al crear productos, es por eso que desarrollamos este SDK que actúa como un puente entre React Native y Nativo, permitiendo a otros desarrolladores que integren MercadoPago en sus aplicaciones.
 
 ## Experiencia
 

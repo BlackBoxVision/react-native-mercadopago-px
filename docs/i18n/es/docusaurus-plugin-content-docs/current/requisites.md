@@ -10,7 +10,7 @@ Como requisito vas a necesitar tener lo siguiente antes de integrarte con nuestr
 2. Una `llave pública` asociada a tu cuenta
 3. Un `ID de preferencia` obtenido desde tus servidores
 
-Si no tenes nada de esto, podes empezar acá:
+Si no tenés nada de esto, podés empezar acá:
 
 1. [Crear una cuenta en MercadoPago](https://www.mercadopago.com.ar)
 2. [Crear una aplicación en MercadoPago](https://applications.mercadopago.com)
@@ -18,7 +18,7 @@ Si no tenes nada de esto, podes empezar acá:
 
 ### Pruebas
 
-A propósitos de pruebas te proveemos un ejemplo de `cURL` sobre como crear una preferencia:
+A propósito de pruebas te proveemos un ejemplo de `cURL` sobre como crear una preferencia:
 
 ```bash
 curl -X POST \
@@ -40,7 +40,7 @@ curl -X POST \
     }'
 ```
 
-Vas a necesitar reemplazar en `ACCESS_TOKEN` con el token de acceso de la aplicación que hayas generado con tu cuenta de `MercadoPago`.
+Vas a necesitar reemplazar `ACCESS_TOKEN` con el token de acceso de la aplicación que hayas generado con tu cuenta de `MercadoPago`.
 
 <div class="alert alert--warning" role="alert" style={{ backgroundColor: '#FFD026', color: '#444444' }}>
   Recordá usar <strong>payer@email.com</strong> para poder probar el ejemplo de `cURL`. <strong>Otro email no va a funcionar</strong>.
