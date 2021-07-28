@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: "React Native MercadoPago PX",
-  tagline: "Do you need support to implement the library?",
+  tagline: "Do you need support implementing the library?",
   url: "https://blackboxvision.github.io",
   baseUrl: process.env.BASE_URL || "/",
   onBrokenLinks: "throw",

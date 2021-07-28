@@ -115,8 +115,7 @@ const AppsList = () => {
         >
           <p className={styles.appListText}>
             <Translate id="home.appListText">
-              If you are using it and you want your app to appear, give us a PR
-              by adding your application
+              If you are using it and you want your app to be featured, add it here and send us a PR.
             </Translate>
           </p>
         </a>

@@ -3,7 +3,13 @@
 We're always in the search of compatibility with the vast majority versions of `React Native` and `Expo`.
 
 <div class="alert alert--success" role="alert">
-  If you found some issue you can report to us and we'll try to do our best to help you figure it out.
+  Ayudanos reportando cualquier inconveniente que tengas con esta librería.
+  <br/><br/>
+  Si necesitás <strong>Soporte Empresarial</strong> podemos ayudarte y acomodarnos a los tiempos de tu proyecto. Contactanos a: <strong><a href="mailto:hello@blackbox-vision.tech">hello@blackbox-vision.tech</a></strong>
+
+
+
+  Help us by reporting any issue you came across with this library.
   <br/><br/>
   In case you need our team to align to your project times to fix an issue or add a feature, you can contact us for <strong>Enterprise Support</strong> to: <strong><a href="mailto:hello@blackbox-vision.tech">hello@blackbox-vision.tech</a></strong>
 </div>

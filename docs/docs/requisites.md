@@ -4,13 +4,13 @@
 
 ### Generation
 
-As a requisite you'll need the following before integrating the library:
+You'll need to meet the following requisites before integrating the library:
 
-1. A MercadoPago Account
-2. A `publicKey` from your MercadoPago Account
-3. A `preferenceId` obtained from your servers
+1. Owning a MercadoPago Account
+2. Having a `publicKey` from your MercadoPago Account
+3. Having a `preferenceId` obtained from your servers
 
-If you don't have any of the followings, you can start from here:
+If you don't meet any of the previous requisites, you can start from here:
 
 1. [Creating a MercadoPago Account](https://www.mercadopago.com.ar/)
 2. [Creating a MercadoPago Application](https://applications.mercadopago.com/)
@@ -43,10 +43,10 @@ curl -X POST \
 You'll need to replace `ACCESS_TOKEN` with your application account access token.
 
 <div class="alert alert--warning" role="alert" style={{ backgroundColor: '#FFD026', color: '#002b40' }}>
-  Remember using <strong>payer@email.com</strong> payer email to test with the rest of items in this example. <strong>Another email will not work.</strong>
+  Remember using <strong>payer@email.com</strong> payer email to test with the rest of the items in this example. <strong>Any other email will not work.</strong>
 </div> 
 <br/>
 
-If you've more doubts you can read more documentation in this portal:
+If you have any more doubts you can read the documentation in this portal:
 
 - [MercadoPago Developers](https://developers.mercadopago.com/)

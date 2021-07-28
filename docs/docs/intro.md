@@ -2,9 +2,9 @@
 
 ## Motivation
 
-Currently `MercadoPago` only brings OSS support for Native SDKs. There's no intended support for `React Native`. 
+Currently `MercadoPago` only offers OSS support for Native SDKs. There's no intended support for `React Native`. 
 
-Since we use a lot `MercadoPago` when developing products, we aimed to develop a SDK that acts as a Bridge for React Native letting other developers to integrate MercadoPago in its React Native Apps.
+Since we use  `MercadoPago` a lot when creating our products, we aimed to develop a SDK that acts as a Bridge for React Native, letting other developers to integrate MercadoPago in its React Native Apps.
 
 ## Experience
 

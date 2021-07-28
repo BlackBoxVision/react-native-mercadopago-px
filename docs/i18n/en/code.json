@@ -4,7 +4,7 @@
     "description": "The homepage call to action"
   },
   "home.tagline": {
-    "message": "Do you need support to implement the library?"
+    "message": "Do you need support implementing the library?"
   },
   "home.appListTitle": {
     "message": "These apps are already using it"
