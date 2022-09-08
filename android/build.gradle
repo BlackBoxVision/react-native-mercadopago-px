@@ -7,6 +7,9 @@ buildscript {
   repositories {
     google()
     jcenter()
+    maven {
+      url 'https://artifacts.mercadolibre.com/repository/android-releases/'
+    }
   }
 
   dependencies {
@@ -31,7 +34,7 @@ def getExtOrPackageJsonDefault(name) {
   def inputFile = new File("$rootDir/../package.json")
   def packageJson = new JsonSlurper().parseText(inputFile.text)
 
-  return rootProject.ext.has(name) ? rootProject.ext.get(name) : packageJson['sdkVersions'] ? packageJson['sdkVersions']['android']['mercadopagopx'] : "4.45.0"
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : packageJson['sdkVersions'] ? packageJson['sdkVersions']['android']['mercadopagopx'] : "4.53.2"
 }
 
 android {
